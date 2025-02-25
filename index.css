@@ -2713,7 +2713,7 @@ body {
     .importance-item {
         flex-direction: column;
         text-align: center;
-        background: #ffffff;
+        background: rgba(255,255,255,0.9);
     }
 
     .importance-icon {
@@ -3800,7 +3800,7 @@ p {
         flex-direction: column;
         align-items: center;
         justify-content: center; /* Dikeyde ortala */
-        padding: 10px 0 !important;
+        padding: 20px 10px;
         box-sizing: border-box;
     }
 
@@ -3813,7 +3813,7 @@ p {
         scroll-snap-align: center;
         padding: 15px;
         border-radius: 10px;
-        background: #ffffff;
+        background: rgba(255,255,255,0.9);
         box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         box-sizing: border-box;
         text-align: center;
@@ -3821,9 +3821,10 @@ p {
     
     .project-grid {
         width: 100% !important;
-        display: flex !important;
+        display: flex;
+        flex-direction: column;
         overflow-x: auto !important;
-        gap: 10px !important;
+        gap: 20px;
         scroll-snap-type: x mandatory !important;
         padding-bottom: 10px !important;
         align-items: center !important; /* dikey ortala */
@@ -3831,24 +3832,25 @@ p {
 
     .project-item {
         flex: 0 0 95%; /* genişliği arttır */
-        padding: 25px 15px !important; /* yüksekliği arttır */
+        width: 100%;
+        padding: 20px;
         margin: auto 0; /* dikey ortala */
         scroll-snap-align: center;
         border-radius: 10px;
         background: rgba(255,255,255,0.9);
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 10px;
         box-sizing: border-box;
         text-align: center;
     }
     
     .project-item h2 {
-        font-size: 18px;
+        font-size: 16px;
         margin-bottom: 8px;
     }
 
     .project-item p {
         font-size: 14px;
-        line-height: 1.4;
     }
 
     .project-grid::-webkit-scrollbar {
@@ -3866,8 +3868,13 @@ p {
         overflow: hidden !important;
         box-sizing: border-box !important;
     }
+    .section-title{
+        margin-bottom: 15px;
+        font-size: 20px;
+        text-align: center;
+    }
 
-    .section-title, .importance-title {
+    .importance-title {
         font-size: 18px !important;
         text-align: center !important;
         margin-top: 0 !important;
