@@ -856,7 +856,13 @@ document.addEventListener("wheel", (event) => {
 
     
         // **"KEŞFET" BUTONU TIKLANDIĞINDA METALCAN SAYFASINA GEÇİŞ**
-        document.querySelector(".explore-btn").addEventListener("click", () => scrollToPage('character-intro'));
+        document.querySelector(".explore-btn").addEventListener("click", () => {
+            const innovativeProjectSection = document.getElementById("innovative-project");
+            if (innovativeProjectSection) {
+                innovativeProjectSection.scrollIntoView({ behavior: "smooth" });
+                scrollToPage(1); // Indicatorları güncellemek için gerekli (ikinci sayfa indexi: 1)
+            }
+        });
     
         // **MODAL KONTROLLERİ**
         
