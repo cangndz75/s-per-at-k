@@ -15,8 +15,8 @@
     <div class="page-indicator">
         <div class="indicator active" data-page="homepage"></div>
         <div class="indicator" data-page="innovative-project"></div>
-        <div class="indicator" data-page="project-importance"></div>
-        <div class="indicator" data-page="sak-textContainer"></div>
+        <div class="indicator" data-page="importance-container"></div>
+        <div class="indicator" data-page="sak-text-container"></div>
         <div class="indicator" data-page="fırat"></div>
         <div class="indicator" data-page="sıfat"></div>
         <div class="indicator" data-page="camsu"></div>
@@ -82,7 +82,6 @@
     </div>
             
     <div class="page" id="importance-container">
-        <div class="importance-container">
             <h1 class="importance-title">PROJENİN ÖNEMİ</h1>
             <!-- <p class="importance-text">
                 Çevreye verilen zararı en aza indirgemek ve çöp miktarını azaltmanın tek yolu geri dönüşümdür. 
@@ -139,7 +138,6 @@
     </div>
 
     <div class="page" id="sak-text-container">
-        <div class="sak-text-container">
             <h1 class="sak-title">🌍 SIFIR ATIK KAHRAMANLARI</h1>
             <p class="sak-description">
                 Çizgi film animasyonlarıyla çevre sorunlarına dikkat çekmek, toplumsal bilinci artırmak ve eğitim süreçlerini verimli hale getirmek amacıyla tasarlanmış örnek bir sosyal sorumluluk projesidir.
@@ -1246,40 +1244,53 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         </script>
         <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                if (window.innerWidth > 768) return;
-            
-                let touchStartY = 0;
-                let currentPageIndex = 0;
-                const pages = document.querySelectorAll('.page');
-                const totalPages = pages.length;
-            
-                function scrollToPage(index) {
-                    if (index >= 0 && index < totalPages) {
-                        pages.forEach((page, i) => {
-                            page.classList.remove('active'); // Aktif sınıfı kaldır
-                            page.style.transform = `translateY(${(i - index) * 100}vh)`;
-                        });
-                        pages[index].classList.add('active');
-                        currentPageIndex = index;
-                    }
-                }
-            
-                document.addEventListener('touchstart', (e) => {
-                    touchStartY = e.touches[0].clientY;
-                }, { passive: true });
-            
-                document.addEventListener('touchend', (e) => {
-                    let touchEndY = e.changedTouches[0].clientY;
-                    if (touchStartY - touchEndY > 50) { 
-                        if (currentPageIndex < totalPages - 1) scrollToPage(currentPageIndex + 1);
-                    } else if (touchEndY - touchStartY > 50) {
-                        if (currentPageIndex > 0) scrollToPage(currentPageIndex - 1);
-                    }
-                }, { passive: true });
-            
-                scrollToPage(0);
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth > 768) return;
+
+    let touchStartY = 0;
+    let currentPage = 0;
+    const pages = document.querySelectorAll('.page');
+    const indicators = document.querySelectorAll('.indicator');
+    const totalPages = pages.length;
+
+    function scrollToPage(index) {
+        if (index >= 0 && index < totalPages) {
+            pages.forEach((page, i) => {
+                page.classList.toggle('active', i === index);
+                page.style.transform = `translateY(${(i - index) * 100}vh)`;
             });
+            currentPage = index;
+            updateIndicators();
+        }
+    }
+
+    function updateIndicators() {
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle("active", i === currentPage);
+        });
+    }
+
+    document.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+        let touchEndY = e.changedTouches[0].clientY;
+        if (touchStartY - touchEndY > 50) { 
+            if (currentPage < totalPages - 1) scrollToPage(currentPage + 1);
+        } else if (touchEndY - touchStartY > 50) {
+            if (currentPage > 0) scrollToPage(currentPage - 1);
+        }
+    }, { passive: true });
+
+    // İlk sayfaya initialize et
+    scrollToPage(0);
+
+    // Indicator'a dokunarak sayfa geçişi
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => scrollToPage(index));
+    });
+});
             </script>
             <script>
         document.addEventListener("DOMContentLoaded", function () {
