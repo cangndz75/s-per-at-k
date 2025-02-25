@@ -3674,14 +3674,20 @@ p {
 
     @media screen and (max-width: 768px) {
         .page {
-            height: 100vh !important;
-            overflow: hidden !important; /* dikey taşmayı kaldır */
-            padding: 10px 0 !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            box-sizing: border-box !important;
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: none; /* Başlangıçta sayfaları gizle */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+            transform: scale(0.9);
         }
+        
 
         .project-item {
             flex: 0 0 90%;
