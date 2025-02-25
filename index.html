@@ -159,13 +159,15 @@
 
         <div class="sak-video-container" >
             <div class="sak-karakter-video">
-                <iframe id="sak-karakterVideo"
-                    src="https://player.vimeo.com/video/1059552732?badge=0&amp;autopause=0&amp;loop=1&amp;background=1&amp;muted=1&amp;controls=0"
-                    frameborder="0"
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                    style="width:100%; height:100%;"
-                    title="saktanitim">
-                </iframe>
+                <iframe 
+                id="sak-karakterVideo"
+                src="https://player.vimeo.com/video/1059552732?badge=0&amp;autopause=0&amp;loop=1&amp;background=1&amp;muted=1&amp;controls=0"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                allowfullscreen
+                style="width:100%; height:100%;"
+                title="saktanitim">
+            </iframe>
             </div>
         </div>
         
@@ -857,12 +859,12 @@ document.addEventListener("wheel", (event) => {
     
         // **"KEŞFET" BUTONU TIKLANDIĞINDA METALCAN SAYFASINA GEÇİŞ**
         document.querySelector(".explore-btn").addEventListener("click", () => {
-            const innovativeProjectSection = document.getElementById("innovative-project");
-            if (innovativeProjectSection) {
-                innovativeProjectSection.scrollIntoView({ behavior: "smooth" });
-                scrollToPage(1); // Indicatorları güncellemek için gerekli (ikinci sayfa indexi: 1)
-            }
-        });
+                const innovativeProjectSection = document.getElementById("innovative-project");
+                if (innovativeProjectSection) {
+                    innovativeProjectSection.scrollIntoView({ behavior: "smooth" });
+                    scrollToPage(1); // Indicatorları güncellemek için gerekli (ikinci sayfa indexi: 1)
+                }
+            });
     
         // **MODAL KONTROLLERİ**
         
@@ -1294,72 +1296,68 @@ document.addEventListener('DOMContentLoaded', () => {
 });
             </script>
             <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const iframe = document.getElementById("sak-karakterVideo");
-            const player = new Vimeo.Player(iframe);
+document.addEventListener("DOMContentLoaded", function () {
+    const iframe = document.getElementById("sak-karakterVideo");
+    const player = new Vimeo.Player(iframe);
 
-            const videoContainer = document.getElementById("sak-videoContainer");
-            const playPauseBtn = document.getElementById("sak-playPauseBtn");
-            const fullscreenBtn = document.getElementById("sak-fullscreenBtn");
-            const textContainer = document.getElementById("sak-textContainer");
+    const videoContainer = document.getElementById("sak-videoContainer");
+    const playPauseBtn = document.getElementById("sak-playPauseBtn");
+    const fullscreenBtn = document.getElementById("sak-fullscreenBtn");
+    const textContainer = document.getElementById("sak-text-container"); // Doğru id bu olmalı
 
-            let isFullscreen = false;
-            let isPlaying = true;
+    let isPlaying = true;
 
-            // 🎥 Video Oynat / Durdur (Vimeo API)
-            playPauseBtn.addEventListener("click", () => {
-            if (isPlaying) {
-                player.pause();
-                playPauseBtn.innerHTML = '<i class="fas fa-play"></i> Oynat';
-            } else {
-                player.play();
-                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i> Durdur';
-            }
-            isPlaying = !isPlaying;
-            });
+    // 🎥 Oynat/Durdur kontrolü
+    playPauseBtn.addEventListener("click", () => {
+        if (isPlaying) {
+            player.pause();
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i> Oynat';
+        } else {
+            player.play();
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i> Durdur';
+        }
+        isPlaying = !isPlaying;
+    });
 
-            // ⛶ Tam Ekran Modu
-            fullscreenBtn.addEventListener("click", () => {
-            videoContainer.classList.toggle("sak-fullscreen");
-            isFullscreen = !isFullscreen;
-
-            if (isFullscreen) {
-                textContainer.classList.add("sak-hidden"); // Yazıyı gizle
-                fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i> Küçült';
-                if (videoContainer.requestFullscreen) {
+    // ⛶ Tam Ekran Modu düzeltmesi
+    fullscreenBtn.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+            if (videoContainer.requestFullscreen) {
                 videoContainer.requestFullscreen();
-                } else if (videoContainer.webkitRequestFullscreen) {
+            } else if (videoContainer.webkitRequestFullscreen) {
                 videoContainer.webkitRequestFullscreen();
-                } else if (videoContainer.msRequestFullscreen) {
+            } else if (videoContainer.msRequestFullscreen) {
                 videoContainer.msRequestFullscreen();
-                }
-            } else {
-                textContainer.classList.remove("sak-hidden"); // Yazıyı geri getir
-                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i> Tam Ekran';
-                if (document.exitFullscreen) {
-                document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-                }
             }
-            });
+            textContainer.classList.add("sak-hidden");
+            fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i> Küçült';
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+            textContainer.classList.remove("sak-hidden");
+            fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i> Tam Ekran';
+        }
+    });
 
-            // 🖱️ Kart hover efekti (aynı kalabilir, değiştirmeye gerek yok)
-            const cards = document.querySelectorAll(".project-item");
+    // 🖱️ Kart hover efekti (aynen kalabilir)
+    const cards = document.querySelectorAll(".project-item");
 
-            cards.forEach((card) => {
-            card.addEventListener("mouseenter", () => {
-                card.style.transform = "scale(1.05)";
-                card.style.transition = "transform 0.3s ease-in-out";
-            });
-
-            card.addEventListener("mouseleave", () => {
-                card.style.transform = "scale(1)";
-            });
-            });
+    cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+            card.style.transform = "scale(1.05)";
+            card.style.transition = "transform 0.3s ease-in-out";
         });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "scale(1)";
+        });
+    });
+});
         </script>
         <script>
 document.addEventListener("DOMContentLoaded", function () {
