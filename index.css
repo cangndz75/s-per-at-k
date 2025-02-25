@@ -3152,3 +3152,297 @@ body, html {
     transform: translate(-50%, -50%);
     pointer-events: none; 
 }
+
+/* 🟢 Mobil Ekranlar İçin Genel Yapı */
+@media (max-width: 1024px) {
+    body {
+        font-size: 14px; /* Genel font boyutunu küçült */
+        overflow-x: hidden;
+    }
+
+    /* 🏠 Ana Sayfa Başlıkları */
+    .main-title {
+        font-size: 36px;
+    }
+
+    .main-subtitle {
+        font-size: 16px;
+    }
+
+    /* 🎨 İçerik Alanları */
+    .petsu-content {
+        width: 90%; /* Mobilde daha geniş görünüm */
+        padding: 15px;
+    }
+
+    .petsu-title {
+        font-size: 24px;
+        padding: 8px 16px;
+    }
+
+    .petsu-subtitle {
+        font-size: 14px;
+    }
+
+    /* 📌 Sayfa İçeriği */
+    .page {
+        padding: 20px;
+    }
+
+    /* 🖼️ Görseller */
+    .robot-image,
+    .piri-image,
+    .elektroman-image,
+    .arca-image,
+    .balca-image {
+        width: 80%; /* Mobilde daha küçük */
+        max-width: 300px;
+    }
+
+    /* 📌 Sayfa Geçiş Butonları */
+    .detail-btn {
+        width: 50px;
+        height: 80px;
+        font-size: 12px;
+    }
+
+    /* 🎯 İçerik Kartları */
+    .info-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .info-card {
+        width: 90%;
+        padding: 20px;
+    }
+
+    /* 📌 Karakter Kartları */
+    .character-intro-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .character-intro-img {
+        width: 100px;
+    }
+
+    /* 📌 Butonlar */
+    .explore-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+/* 🟡 Küçük Ekranlar İçin Sayfa Düzeni */
+@media (max-width: 768px) {
+    /* 🎯 Sayfa Genel Düzeni */
+    .page {
+        flex-direction: column;
+        justify-content: center;
+        padding: 15px;
+    }
+
+    /* 🔹 İçerik Kartları */
+    .petsu-content {
+        width: 95%;
+        padding: 12px;
+    }
+
+    /* 🔹 Başlıklar */
+    .petsu-title {
+        font-size: 22px;
+        padding: 6px 12px;
+    }
+
+    .petsu-subtitle {
+        font-size: 12px;
+    }
+
+    /* 🖼️ Görseller */
+    .robot-image,
+    .piri-image,
+    .elektroman-image,
+    .arca-image,
+    .balca-image {
+        max-width: 250px;
+    }
+
+    /* 📌 Sayfa Geçiş Butonları */
+    .detail-btn {
+        width: 45px;
+        height: 70px;
+        font-size: 10px;
+    }
+
+    /* 📌 İçerik Kartları */
+    .info-container {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .info-card {
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* 🎥 Video Alanı */
+    .sak-video-container {
+        height: 60vh;
+    }
+
+    .sak-karakter-video {
+        width: 90%;
+        height: auto;
+    }
+
+    /* 🟢 Butonlar */
+    .explore-btn {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    /* 🟢 Mobilde Navbar için */
+    .header {
+        font-size: 20px;
+        top: 10px;
+        left: 10px;
+    }
+
+    /* 🟢 Sayfa Geçiş Efekti */
+    .page.active {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@media (max-width: 600px) {
+    /* 🎨 Genel Mobil Stiller */
+    body {
+        font-size: 12px;
+    }
+
+    /* 🏠 Ana Sayfa */
+    .main-title {
+        font-size: 28px;
+    }
+
+    .main-subtitle {
+        font-size: 14px;
+    }
+
+    /* 📌 Sayfa İçeriği */
+    .page {
+        padding: 10px;
+    }
+
+    /* 🖼️ Görseller */
+    .robot-image,
+    .piri-image,
+    .elektroman-image,
+    .arca-image,
+    .balca-image {
+        width: 80%;
+        max-width: 200px;
+    }
+
+    /* 📌 İçerik Kartları */
+    .info-container {
+        padding: 10px;
+    }
+
+    .info-card {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* 📌 Video Alanı */
+    .sak-video-container {
+        height: 50vh;
+    }
+
+    .sak-karakter-video {
+        width: 100%;
+        height: auto;
+    }
+
+    /* 📌 Butonlar */
+    .explore-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    /* 📌 Sayfa Geçiş Butonları */
+    .detail-btn {
+        width: 40px;
+        height: 60px;
+        font-size: 10px;
+    }
+
+    /* 📌 Sayfa Geçiş Efekti */
+    .page.active {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@media (max-width: 480px) {
+    /* 📌 Genel Stiller */
+    body {
+        font-size: 10px;
+    }
+
+    /* 🏠 Ana Sayfa Başlıkları */
+    .main-title {
+        font-size: 24px;
+    }
+
+    .main-subtitle {
+        font-size: 12px;
+    }
+
+    /* 📌 Sayfa İçeriği */
+    .page {
+        padding: 5px;
+    }
+
+    /* 📌 İçerik Kartları */
+    .info-container {
+        padding: 5px;
+    }
+
+    .info-card {
+        width: 100%;
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    /* 📌 Video Alanı */
+    .sak-video-container {
+        height: 40vh;
+    }
+
+    .sak-karakter-video {
+        width: 100%;
+        height: auto;
+    }
+
+    /* 📌 Butonlar */
+    .explore-btn {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+
+    /* 📌 Sayfa Geçiş Butonları */
+    .detail-btn {
+        width: 35px;
+        height: 50px;
+        font-size: 8px;
+    }
+
+    /* 📌 Sayfa Geçiş Efekti */
+    .page.active {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
