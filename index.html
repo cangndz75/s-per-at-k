@@ -989,9 +989,7 @@ document.querySelector(".control-btn.down").addEventListener("click", nextCard);
 // document.querySelector(".control-btn.detail").addEventListener("click", openDetail);
 // document.querySelector(".close-btn").addEventListener("click", closeDetail);
 
-let modalOpen = false;
 function openDetail(robotId) {
-    modalOpen = true;
     const detail = document.querySelector(`#${robotId}Detail`);
     const content = document.querySelector(`#${robotId} .${robotId}-content`);
     
@@ -1011,7 +1009,6 @@ function openDetail(robotId) {
 }
 
 function closeDetail(robotId) {
-    modalOpen = false;
     const detail = document.querySelector(`#${robotId}Detail`);
     const content = document.querySelector(`#${robotId} .${robotId}-content`);
 
@@ -1286,7 +1283,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     document.addEventListener('touchend', (e) => {
-    if (modalOpen) return;
+    if (isModalOpen) return;
 
     let touchEndY = e.changedTouches[0].clientY;
     if (touchStartY - touchEndY > 50) { 
