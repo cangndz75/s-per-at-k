@@ -3153,296 +3153,294 @@ body, html {
     pointer-events: none; 
 }
 
-/* 🟢 Mobil Ekranlar İçin Genel Yapı */
-@media (max-width: 1024px) {
-    body {
-        font-size: 14px; /* Genel font boyutunu küçült */
-        overflow-x: hidden;
-    }
+/* Genel Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    /* 🏠 Ana Sayfa Başlıkları */
-    .main-title {
-        font-size: 36px;
-    }
+/* Body Genel Stil */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    overflow-x: hidden;
+}
 
-    .main-subtitle {
-        font-size: 16px;
-    }
+/* Sayfa İçeriği */
+.page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
 
-    /* 🎨 İçerik Alanları */
-    .petsu-content {
-        width: 90%; /* Mobilde daha geniş görünüm */
-        padding: 15px;
-    }
+/* Başlıklar */
+h1, h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
 
-    .petsu-title {
-        font-size: 24px;
-        padding: 8px 16px;
-    }
+h1 {
+    font-size: 2rem;
+}
 
-    .petsu-subtitle {
-        font-size: 14px;
-    }
+h2 {
+    font-size: 1.5rem;
+}
 
-    /* 📌 Sayfa İçeriği */
-    .page {
-        padding: 20px;
-    }
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 10px 0;
+}
 
-    /* 🖼️ Görseller */
-    .robot-image,
-    .piri-image,
-    .elektroman-image,
-    .arca-image,
-    .balca-image {
-        width: 80%; /* Mobilde daha küçük */
-        max-width: 300px;
-    }
+/* Detay Butonu */
+.detail-btn {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    color: black;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    z-index: 2000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
-    /* 📌 Sayfa Geçiş Butonları */
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(0,0,0,0.4);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: white;
+    z-index: 2000;
+}
+
+/* Modal Yapısı */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: #fff;
+    z-index: 9999;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.modal-header {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-body {
+    padding-top: 10px;
+    overflow-y: auto;
+    max-height: 70vh; 
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Sayfa Geçiş Göstergesi */
+.page-indicator {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 999;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    background: #bbb;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.indicator.active {
+    background: #ffcc00;
+}
+
+/* 🌍 **Mobil Uyumluluk için Media Queries** */
+@media (max-width: 1024px) { /* iPad ve büyük tabletler */
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.4rem;
+    }
     .detail-btn {
-        width: 50px;
-        height: 80px;
-        font-size: 12px;
+        bottom: 20px;
+        left: 20px;
     }
-
-    /* 🎯 İçerik Kartları */
-    .info-container {
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-    }
-
-    .info-card {
-        width: 90%;
-        padding: 20px;
-    }
-
-    /* 📌 Karakter Kartları */
-    .character-intro-container {
-        width: 90%;
-        padding: 20px;
-    }
-
-    .character-intro-img {
-        width: 100px;
-    }
-
-    /* 📌 Butonlar */
-    .explore-btn {
-        font-size: 14px;
-        padding: 10px 20px;
+    .footer {
+        bottom: 20px;
+        right: 20px;
     }
 }
-/* 🟡 Küçük Ekranlar İçin Sayfa Düzeni */
-@media (max-width: 768px) {
-    /* 🎯 Sayfa Genel Düzeni */
-    .page {
-        flex-direction: column;
-        justify-content: center;
-        padding: 15px;
-    }
 
-    /* 🔹 İçerik Kartları */
-    .petsu-content {
-        width: 95%;
-        padding: 12px;
+@media (max-width: 992px) { /* Küçük tabletler ve büyük telefonlar */
+    h1 {
+        font-size: 1.8rem;
     }
-
-    /* 🔹 Başlıklar */
-    .petsu-title {
-        font-size: 22px;
-        padding: 6px 12px;
+    h2 {
+        font-size: 1.3rem;
     }
-
-    .petsu-subtitle {
-        font-size: 12px;
-    }
-
-    /* 🖼️ Görseller */
-    .robot-image,
-    .piri-image,
-    .elektroman-image,
-    .arca-image,
-    .balca-image {
-        max-width: 250px;
-    }
-
-    /* 📌 Sayfa Geçiş Butonları */
     .detail-btn {
-        width: 45px;
-        height: 70px;
-        font-size: 10px;
+        bottom: 18px;
+        left: 18px;
     }
-
-    /* 📌 İçerik Kartları */
-    .info-container {
-        flex-direction: column;
-        padding: 15px;
-        gap: 10px;
+    .footer {
+        bottom: 18px;
+        right: 18px;
     }
+}
 
-    .info-card {
-        width: 100%;
-        padding: 15px;
+@media (max-width: 820px) { /* iPad Mini ve bazı Android tabletler */
+    h1 {
+        font-size: 1.6rem;
     }
-
-    /* 🎥 Video Alanı */
-    .sak-video-container {
-        height: 60vh;
+    h2 {
+        font-size: 1.2rem;
     }
-
-    .sak-karakter-video {
-        width: 90%;
-        height: auto;
+    .detail-btn {
+        bottom: 16px;
+        left: 16px;
     }
-
-    /* 🟢 Butonlar */
-    .explore-btn {
-        font-size: 12px;
-        padding: 8px 16px;
+    .footer {
+        bottom: 16px;
+        right: 16px;
     }
+}
 
-    /* 🟢 Mobilde Navbar için */
-    .header {
-        font-size: 20px;
-        top: 10px;
+@media (max-width: 768px) { /* iPhone Plus serisi, küçük tabletler */
+    h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    .detail-btn {
+        bottom: 15px;
+        left: 15px;
+    }
+    .footer {
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) { /* iPhone 6, 7, 8, SE, X, 11, 12 Mini, 13 Mini */
+    h1 {
+        font-size: 1.4rem;
+    }
+    h2 {
+        font-size: 1.1rem;
+    }
+    p {
+        font-size: 0.9rem;
+    }
+    .detail-btn {
+        bottom: 12px;
+        left: 12px;
+    }
+    .footer {
+        bottom: 12px;
+        right: 12px;
+    }
+}
+
+@media (max-width: 430px) { /* iPhone 11, 12, 13, 14, 15 */
+    h1 {
+        font-size: 1.3rem;
+    }
+    h2 {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.9rem;
+    }
+    .detail-btn {
+        bottom: 10px;
         left: 10px;
     }
-
-    /* 🟢 Sayfa Geçiş Efekti */
-    .page.active {
-        opacity: 1;
-        transform: scale(1);
+    .footer {
+        bottom: 10px;
+        right: 10px;
     }
 }
-@media (max-width: 600px) {
-    /* 🎨 Genel Mobil Stiller */
-    body {
-        font-size: 12px;
-    }
 
-    /* 🏠 Ana Sayfa */
-    .main-title {
-        font-size: 28px;
+@media (max-width: 390px) { /* iPhone 13 Mini, 14 Pro, 15 Pro, 16 Mini */
+    h1 {
+        font-size: 1.2rem;
     }
-
-    .main-subtitle {
-        font-size: 14px;
+    h2 {
+        font-size: 0.95rem;
     }
-
-    /* 📌 Sayfa İçeriği */
-    .page {
-        padding: 10px;
+    p {
+        font-size: 0.85rem;
     }
-
-    /* 🖼️ Görseller */
-    .robot-image,
-    .piri-image,
-    .elektroman-image,
-    .arca-image,
-    .balca-image {
-        width: 80%;
-        max-width: 200px;
-    }
-
-    /* 📌 İçerik Kartları */
-    .info-container {
-        padding: 10px;
-    }
-
-    .info-card {
-        width: 100%;
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    /* 📌 Video Alanı */
-    .sak-video-container {
-        height: 50vh;
-    }
-
-    .sak-karakter-video {
-        width: 100%;
-        height: auto;
-    }
-
-    /* 📌 Butonlar */
-    .explore-btn {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
-
-    /* 📌 Sayfa Geçiş Butonları */
     .detail-btn {
-        width: 40px;
-        height: 60px;
-        font-size: 10px;
+        bottom: 8px;
+        left: 8px;
     }
-
-    /* 📌 Sayfa Geçiş Efekti */
-    .page.active {
-        opacity: 1;
-        transform: scale(1);
+    .footer {
+        bottom: 8px;
+        right: 8px;
     }
 }
-@media (max-width: 480px) {
-    /* 📌 Genel Stiller */
-    body {
-        font-size: 10px;
-    }
 
-    /* 🏠 Ana Sayfa Başlıkları */
-    .main-title {
-        font-size: 24px;
+@media (max-width: 360px) { /* Küçük Android telefonlar */
+    h1 {
+        font-size: 1.1rem;
     }
-
-    .main-subtitle {
-        font-size: 12px;
+    h2 {
+        font-size: 0.9rem;
     }
-
-    /* 📌 Sayfa İçeriği */
-    .page {
-        padding: 5px;
+    p {
+        font-size: 0.8rem;
     }
-
-    /* 📌 İçerik Kartları */
-    .info-container {
-        padding: 5px;
-    }
-
-    .info-card {
-        width: 100%;
-        padding: 8px;
-        font-size: 12px;
-    }
-
-    /* 📌 Video Alanı */
-    .sak-video-container {
-        height: 40vh;
-    }
-
-    .sak-karakter-video {
-        width: 100%;
-        height: auto;
-    }
-
-    /* 📌 Butonlar */
-    .explore-btn {
-        font-size: 10px;
-        padding: 5px 10px;
-    }
-
-    /* 📌 Sayfa Geçiş Butonları */
     .detail-btn {
-        width: 35px;
-        height: 50px;
-        font-size: 8px;
+        bottom: 6px;
+        left: 6px;
     }
-
-    /* 📌 Sayfa Geçiş Efekti */
-    .page.active {
-        opacity: 1;
-        transform: scale(1);
+    .footer {
+        bottom: 6px;
+        right: 6px;
     }
 }
