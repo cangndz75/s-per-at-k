@@ -3679,6 +3679,14 @@ p {
 
 }
 
+@media (max-width: 768px) {
+    #sak-text-container,
+    #importance-container {
+      display: none !important;
+    }
+  }
+  
+
 @media screen and (max-width: 768px) {
     .page {
       height: 100vh; /* Ekranın yüksekliğiyle sınırlı tutar */
@@ -3692,19 +3700,6 @@ p {
       box-sizing: border-box; /* Padding ve border dahil ölçü hesabı */
     }
   
-    #sak-text-container,
-    #importance-container {
-      padding: 15px;
-      width: 90%;
-      height: calc(100vh - 60px); /* Başlık için üstte bıraktığın boşluğu düş */
-      overflow-y: auto; /* Sadece bu alanda scroll edilebilir */
-      overflow-x: hidden;
-      box-sizing: border-box;
-      margin-top: 60px;
-      position: relative;
-      z-index: 10;
-    }
-
     
         .sak-title, .importance-title {
             font-size: 24px;
