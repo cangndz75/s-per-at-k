@@ -1291,15 +1291,13 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener("DOMContentLoaded", function () {
     const iframe = document.getElementById("sak-karakterVideo");
     const player = new Vimeo.Player(iframe);
-
     const videoContainer = document.getElementById("sak-videoContainer");
     const playPauseBtn = document.getElementById("sak-playPauseBtn");
     const fullscreenBtn = document.getElementById("sak-fullscreenBtn");
-    const textContainer = document.getElementById("sak-text-container"); // Doğru id bu olmalı
-
     let isPlaying = true;
+    let isFullscreen = false;
 
-    // 🎥 Oynat/Durdur kontrolü
+    // Oynat/Durdur butonu
     playPauseBtn.addEventListener("click", () => {
         if (isPlaying) {
             player.pause();
@@ -1311,43 +1309,42 @@ document.addEventListener("DOMContentLoaded", function () {
         isPlaying = !isPlaying;
     });
 
-    // ⛶ Tam Ekran Modu düzeltmesi
+    // Tam Ekran butonu
     fullscreenBtn.addEventListener("click", () => {
-        if (!document.fullscreenElement) {
-            if (videoContainer.requestFullscreen) {
-                videoContainer.requestFullscreen();
-            } else if (videoContainer.webkitRequestFullscreen) {
-                videoContainer.webkitRequestFullscreen();
-            } else if (videoContainer.msRequestFullscreen) {
-                videoContainer.msRequestFullscreen();
-            }
-            textContainer.classList.add("sak-hidden");
-            fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i> Küçült';
+        if (!isFullscreen) {
+            openFullscreen(videoContainer);
         } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            }
-            textContainer.classList.remove("sak-hidden");
-            fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i> Tam Ekran';
+            closeFullscreen();
         }
+        isFullscreen = !isFullscreen;
     });
 
-    // 🖱️ Kart hover efekti (aynen kalabilir)
-    const cards = document.querySelectorAll(".project-item");
+    function openFullscreen(elem) {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+        }
+        fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i> Küçült';
+    }
 
-    cards.forEach((card) => {
-        card.addEventListener("mouseenter", () => {
-            card.style.transform = "scale(1.05)";
-            card.style.transition = "transform 0.3s ease-in-out";
-        });
+    function closeFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+        fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i> Tam Ekran';
+    }
 
-        card.addEventListener("mouseleave", () => {
-            card.style.transform = "scale(1)";
-        });
+    // Fullscreen değişimlerini dinle (buton güncellemesi için)
+    document.addEventListener("fullscreenchange", () => {
+        isFullscreen = !!document.fullscreenElement;
+        fullscreenBtn.innerHTML = isFullscreen ? '<i class="fas fa-compress"></i> Küçült' : '<i class="fas fa-expand"></i> Tam Ekran';
     });
 });
         </script>

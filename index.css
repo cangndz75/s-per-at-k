@@ -2713,6 +2713,7 @@ body {
     .importance-item {
         flex-direction: column;
         text-align: center;
+        background: #ffffff;
     }
 
     .importance-icon {
@@ -3812,7 +3813,7 @@ p {
         scroll-snap-align: center;
         padding: 15px;
         border-radius: 10px;
-        background: rgba(255,255,255,0.9);
+        background: #ffffff;
         box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         box-sizing: border-box;
         text-align: center;
@@ -3967,17 +3968,17 @@ p {
         width: 100%;
         height: 200px;
         position: relative;
-        margin-top: 10px;
+        overflow: hidden;
+        margin-top: 15px;
+        border-radius: 8px;
     }
 
-    .sak-karakter-video iframe {
-        width: 100% !important;
-        height: 100% !important;
-        border-radius: 10px;
+    .sak-video-container iframe {
+        width: 100%;
+        height: 100%;
     }
 
     .sak-buton-container {
-        width: 100%;
         display: flex;
         justify-content: center;
         gap: 10px;
@@ -3986,25 +3987,40 @@ p {
 
     .sak-button {
         padding: 8px 15px;
-        font-size: 14px;
-        border-radius: 5px;
+        background-color: #007bff;
         border: none;
-        background: #007bff;
         color: white;
+        border-radius: 5px;
+        font-size: 14px;
         cursor: pointer;
-        transition: background 0.3s ease;
-    }
-
-    .sak-button i {
-        margin-right: 5px;
+        transition: background-color 0.3s ease;
     }
 
     .sak-button:hover {
-        background: #0056b3;
+        background-color: #0056b3;
+    }
+    .sak-button i {
+        margin-right: 5px;
     }
 
     /* Scrollbar'ı gizle */
     .sak-goals::-webkit-scrollbar {
         display: none;
     }
+}
+
+:fullscreen,
+:-webkit-full-screen,
+:-moz-full-screen,
+:-ms-fullscreen {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+:fullscreen iframe,
+:-webkit-full-screen iframe,
+:-moz-full-screen iframe,
+:-ms-fullscreen iframe {
+    width: 100% !important;
+    height: 100% !important;
 }
