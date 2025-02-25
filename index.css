@@ -171,7 +171,7 @@ body {
 #fırat {
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background: url('./img/fıratarkaplan.png') no-repeat center center;
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.5); /* Hafif siyah saydamlık */
@@ -836,10 +836,6 @@ body {
     display: none;
 }
 
-.indicator[data-page="sak-text-container"]:hover::after {
-    display: none;
-}
-
 /* MetalCan Hover */
 .indicator[data-page="metalcan"]:hover::after {
     background-image: url('./img/petsu.png'); 
@@ -892,7 +888,7 @@ body {
         }
 
         .robot-image {
-            width: 450px;
+            width: 280px;
             max-width: 80%;
             opacity: 0;
             transform: scale(0.8);
@@ -901,7 +897,7 @@ body {
         
 
         .balca-image {
-            width: 800px;
+            width: 600px;
             max-width: 80%;
             opacity: 0;
             transform: scale(0.8);
@@ -909,7 +905,7 @@ body {
         }
 
         .pamukabla-image{
-            width: 300px;
+            width: 200px;
             max-width: 80%;
             opacity: 0;
             transform: scale(0.8);
@@ -917,7 +913,7 @@ body {
         }
         
         .fırat-image{
-            width: 300px;
+            width: 200px;
             max-width: 80%;
             opacity: 0;
             transform: scale(0.8);
@@ -925,7 +921,7 @@ body {
         }
 
         .sıfat-image{
-            width: 270px;
+            width: 200px;
             max-width: 80%;
             opacity: 0;
             transform: scale(0.8);
@@ -933,7 +929,7 @@ body {
         }
 
         .camsu-image{
-            width: 350px;
+            width: 250px;
             max-width: 80%;
             opacity: 0;
             transform: scale(0.8);
@@ -941,7 +937,7 @@ body {
         }
 
         .yagdam-image{
-            width: 400px;
+            width: 300px;
             max-width: 80%;
             opacity: 0;
             transform: scale(0.8);
@@ -949,7 +945,7 @@ body {
         }
 
         .piri-image {
-            width: 300px;
+            width: 200px;
             height: auto;
             max-width: 90%;
             position: relative;
@@ -960,7 +956,7 @@ body {
 
         
         .elektroman-image {
-            width: 350px;
+            width: 320px;
             max-width: 80%;
             opacity: 0;
             transform: scale(0.8);
@@ -968,7 +964,7 @@ body {
         }
 
         .arca-image {
-            width: 350px;
+            width: 250px;
             max-width: 80%;
             opacity: 0;
             transform: scale(0.8);
@@ -2903,7 +2899,7 @@ body, html {
     overflow: hidden;
 }
 
-.sak-text-container {
+/* .sak-text-container {
     width: 90%;
     max-width: 900px;
     background: rgba(255, 255, 255, 0.95);
@@ -2920,9 +2916,9 @@ body, html {
     font-weight: bold;
     color: #2c3e50;
     margin-bottom: 10px;
-}
+} */
 
-.sak-text-container p {
+/* .sak-text-container p {
     font-size: 18px;
     color: #333;
     line-height: 1.5;
@@ -2935,7 +2931,7 @@ body, html {
     justify-content: center;
     align-items: center;
     overflow: hidden; 
-}
+} */
 
 .sak-karakter-video {
     width: 100%; 
@@ -3729,7 +3725,6 @@ p {
             justify-content: center;
         }
     
-        /* Unique-container'ın z-index'ini netleştir */
         .unique-container {
             position: relative;
             z-index: 20 !important; /* Diğer her şeyin üzerinde net görünsün */
@@ -3760,11 +3755,11 @@ p {
             box-sizing: border-box;
         }
     
-        /* Importance-container netleştirme */
         #importance-container {
             position: relative;
             z-index: 10;
             width: 100%;
+            height: 100%;
             padding: 10px;
             box-sizing: border-box;
             display: flex;
