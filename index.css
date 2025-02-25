@@ -2012,7 +2012,8 @@ body {
     font-weight: 900;
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
     opacity: 0; /* Animasyon başlamadan önce görünmez */
-    animation: fadeInUp 1s ease-out forwards; /* 1 saniyede yukarıdan gelerek görünür olacak */
+    animation: fadeInUp 1s ease-out forwards;
+    margin-bottom: 10px;
 }
 
 .homepage-subtitle {
@@ -2022,19 +2023,20 @@ body {
     animation: fadeInUp 1.5s ease-out forwards; /* 1.5 saniyede görünür olacak */
 }
 
-/* 🎯 Buton animasyonu */
-.explore-btn {
-    padding: 12px 24px;
-    font-size: 18px;
-    border: none;
-    background: #FFD700;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.3s ease-in-out, transform 0.2s;
+.scroll-prompt {
+    position: absolute;       /* Sayfa içinde mutlak konumlandırma */
+    bottom: 30px;            /* Sayfanın altından 30px yukarıda */
+    left: 50%;               /* Yatayda ortala */
+    transform: translateX(-50%); 
+    text-align: center;      /* İçerikteki metin ve ikon ortalansın */
+}
+
+.continue-text {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 8px;      /* Yazı ile ok simgesi arasında boşluk */
     opacity: 0;
-    animation: fadeInUp 2s ease-out forwards; /* 2 saniyede görünecek */
+    animation: fadeInUp 1.5s ease-out forwards; /* Yumuşak giriş animasyonu */
 }
 
 .explore-btn:hover {
@@ -2042,7 +2044,6 @@ body {
     transform: scale(1.05); /* Butona hover yapınca hafif büyüsün */
 }
 
-/* 📌 Scroll Icon (Aşağı Kaydırma İşareti) */
 .scroll-icon {
     font-size: 30px;
     cursor: pointer;
@@ -2052,8 +2053,7 @@ body {
     transform: translateX(-50%);
     opacity: 0;
     animation: fadeInUp 2.5s ease-out forwards infinite alternate;
-}
-
+  }
 
 
 /* Bilgilendirme Kartları */
