@@ -2055,6 +2055,31 @@ body {
     animation: fadeInUp 2.5s ease-out forwards infinite alternate;
   }
 
+  @media (max-width: 768px) {
+
+    .scroll-icon {
+        margin-bottom: 30px; /* aşağıdaki ikonu biraz yukarı taşır */
+    }
+
+    .scroll-prompt {
+        margin-bottom: 50px; /* alt yazıyı yukarı taşır */
+        color: white;
+        text-align: center;
+    }
+
+    .continue-text {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Masaüstü görünümü etkilenmesin */
+@media (min-width: 768px) {
+    .scroll-prompt, .scroll-icon {
+        margin-bottom: 0;
+    }
+}
+
 
 /* Bilgilendirme Kartları */
 .info-container {
