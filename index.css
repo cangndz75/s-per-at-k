@@ -3889,3 +3889,23 @@ p {
         box-sizing: border-box;
     }
 }
+
+
+@media screen and (max-width: 768px) {
+    /* Tüm kahraman resimleri için genel stiller */
+    .fırat-image,
+    .sıfat-image,
+    .camsu-image,
+    .robot-image,
+    .piri-image,
+    .elektroman-image {
+        width: 70%; /* ekran genişliğinin %70-80'i arası ideal bir boyut */
+        max-width: 350px;
+        height: auto;
+        opacity: 0;
+        transform: scale(0.9);
+        animation: fadeZoom 1s ease-in-out forwards;
+        margin: 0 auto; /* ortala */
+        display: block;
+    }
+}
