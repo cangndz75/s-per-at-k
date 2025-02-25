@@ -3459,18 +3459,8 @@ p {
         margin-bottom: 20px;
     }
 
-    .project-grid {
-        display: flex;
-        flex-direction: row; /* Kartları yatay sıralar */
-        overflow-x: auto; /* Yana kaydırma */
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        gap: 15px;
-        padding: 10px;
-        max-width: 100%;
-        overflow: hidden;
-    }
 
+/* 
     .project-item {
         min-width: 90%;
         max-width: 90%;
@@ -3480,7 +3470,7 @@ p {
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         text-align: center;
         scroll-snap-align: center;
-    }
+    } */
 
     .project-item h2 {
         font-size: 18px;
@@ -3587,12 +3577,6 @@ p {
         right: 8px;
     }
 
-    /* 📌 Karakter Görseli – Küçültülerek Merkezi Konumlandırma */
-    .fırat-image {
-        max-width: 50%;
-        height: auto;
-        margin-top: 10px;
-    }
 
     /* 📌 Başlık ve Açıklamalar – Küçük Ekranda Daha Uyumlu */
     .title {
@@ -3605,15 +3589,9 @@ p {
         padding: 0 10px;
     }
 
-    /* 📌 Sıfır Atık Logosu – Sol Alt Köşeye Küçültülerek Sabitlendi */
-    .bottom-left-logo {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        width: 50px; /* Küçültüldü */
-    }
 
-    /* 📌 Detay Butonu – Yarım Daire Şeklinde Sol Ortada */
+
+    /* 📌 Detay Butonu – Yarım Daire Şeklinde Sol Ortada
     .detail-btn {
         position: fixed;
         bottom: 15px;
@@ -3631,35 +3609,9 @@ p {
         box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
         z-index: 2000;
         transition: transform 0.3s ease, opacity 0.3s ease;
-    }
+    } */
 
-    /* 📌 Modal İçeriği – Başlık Sabit, İçerik Kaydırılabilir */
-    .modal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
-        max-height: 75vh;
-        overflow-y: auto;
-        background: #fff;
-        z-index: 9999;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-    }
 
-    .modal-header {
-        position: sticky;
-        top: 0;
-        background: white;
-        z-index: 1000;
-        padding: 12px;
-        border-bottom: 1px solid #ddd;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
 
     .modal-body {
         padding-top: 10px;
@@ -3667,32 +3619,12 @@ p {
         max-height: 65vh;
     }
 
-    /* 📌 Kapatma Butonu */
-    .close-btn {
-        cursor: pointer;
-        font-size: 18px;
-        background: none;
-        border: none;
-        color: #666;
-        transition: color 0.3s ease;
-    }
+
 
     .close-btn:hover {
         color: red;
     }
 
-    /* 📌 Footer */
-    .footer {
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        background: rgba(0,0,0,0.4);
-        padding: 5px 10px;
-        border-radius: 8px;
-        font-size: 12px;
-        color: white;
-        z-index: 2000;
-    }
 
     /* 📌 Sayfa Kaymasını Engelleme */
     .fırat-content {
@@ -3704,13 +3636,6 @@ p {
         width: 100%;
     }
 
-    /* 📌 Modal Açıldığında Karakter Kaymasını Engelleme */
-    .modal.active {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
 
     /* 📌 Animasyonlar */
     @keyframes fadeIn {
@@ -3722,5 +3647,126 @@ p {
             opacity: 1;
             transform: scale(1);
         }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .page {
+        overflow-y: visible;
+        overflow-x: hidden;
+    }
+
+    .importance-container {
+        position: relative;
+        z-index: 20 !important;
+        height: auto !important;
+        padding-bottom: 120px !important;
+    }
+
+    .importance-warning, .importance-grid {
+        z-index: 30;
+    }
+
+    .fırat-content, .fırat-content {
+        padding-top: 10vh; /* içerik yukarıya taşınsın */
+    }
+
+    .fırat-image {
+        max-height: 40vh !important; /* Karakter küçültülür */
+        width: auto !important;
+        margin-top: 20px;
+    }
+
+    .title {
+        margin-top: 30px !important; /* Title biraz yukarı çekilir */
+        font-size: 22px;
+    }
+
+    .subtitle {
+        margin-top: 10px !important;
+        font-size: 16px;
+    }
+
+    .detail-btn {
+        position: fixed !important;
+        top: 50% !important;
+        left: 0 !important;
+        border-radius: 0 50% 50% 0 !important;
+        transform: translateY(-50%) !important;
+        font-size: 12px !important;
+        z-index: 100 !important;
+    }
+
+    /* Modal açılınca içerik sola kaymaz (shift_left devre dışı) */
+    .shift-left {
+        transform: none !important;
+    }
+
+    /* Logolar */
+    .bau-logo, .tc-logo {
+        width: 40px !important;
+    }
+
+    .bau-logo {
+        left: 10px;
+        top: 10px;
+        animation: fadeInLeft 1s ease;
+    }
+
+    .tc-logo {
+        right: 10px;
+        top: 10px;
+    }
+
+    .bottom-left-logo.sifiratik-logo {
+        width: 60px !important;
+        left: 10px !important;
+        bottom: 10px !important;
+    }
+
+    .modal {
+        height: 70vh !important;
+        width: 90% !important;
+        top: 10% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        overflow-y: auto;
+    }
+
+    .modal-body {
+        height: calc(100% - 50px) !important;
+        overflow-y: auto;
+    }
+
+    .modal-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: white;
+    }
+    
+    /* Kartlar daha uzun olacak ve yan kaydırma olmayacak */
+    .project-grid {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    .project-item {
+        min-height: 160px !important;
+        margin-bottom: 20px;
+        padding: 15px !important;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .project-grid {
+        overflow-x: hidden !important; /* Yatay kaydırma kapalı */
+        overflow-y: auto;
+        height: auto !important;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        margin-top: 15px !important;
     }
 }
