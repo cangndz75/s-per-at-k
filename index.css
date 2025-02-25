@@ -2059,7 +2059,6 @@ body {
 
     .scroll-icon {
         margin-bottom: 30px; /* aşağıdaki ikonu biraz yukarı taşır */
-        color:yellow;
     }
 
     .scroll-prompt {
@@ -2070,8 +2069,8 @@ body {
 
     .continue-text {
         font-size: 18px;
-        margin-bottom: 10px;
-        color:black;
+        margin-bottom: 15px;
+        color:black
     }
 }
 
