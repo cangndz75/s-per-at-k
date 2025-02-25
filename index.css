@@ -3445,38 +3445,74 @@ p {
 }
 
 @media (max-width: 768px) {
-    .unique-container {
-        width: 90%;
-        max-width: 100%;
-        padding: 20px;
-        text-align: center;
+
+    /* Genel Sayfa Stilleri */
+    .page {
+        height: auto;
+        overflow-y: auto !important;
+        overflow-x: hidden;
+        padding: 20px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        box-sizing: border-box;
     }
 
-    .section-title {
-        font-size: 24px; /* Mobil için daha küçük başlık */
+    /* Unique Container Düzeni */
+    .unique-container,
+    .sak-text-container,
+    .importance-container {
+        width: 90%;
+        max-width: 100%;
+        padding: 10px;
+        margin-top: 60px;
+        text-align: center;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+
+    /* Başlıklar Düzeni */
+    .section-title,
+    .sak-title,
+    .importance-title {
+        font-size: 22px;
         font-weight: bold;
         text-align: center;
         margin-bottom: 20px;
     }
 
+    /* Genel Yazı Tipleri ve Boyutları */
+    .sak-description,
+    .sak-card,
+    .importance-warning,
+    .importance-item p,
+    .project-item p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    /* Kart Düzenleri */
     .project-grid {
+        display: flex;
         flex-direction: column;
         overflow-x: hidden;
         overflow-y: auto;
         height: auto;
-        padding-bottom: 80px; /* Alt kısım için alan aç */
-      }
+        padding-bottom: 80px;
+    }
 
     .project-item {
-        min-width: 90%;
-        max-width: 90%;
+        width: 90%;
         background: white;
         padding: 15px;
         border-radius: 12px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
         text-align: center;
+        margin: 10px auto;
         scroll-snap-align: center;
-    } 
+    }
 
     .project-item h2 {
         font-size: 18px;
@@ -3485,207 +3521,32 @@ p {
         margin-bottom: 8px;
     }
 
-    .project-item p {
-        font-size: 14px;
-        color: #666;
-        line-height: 1.4;
-    }
-
-    .project-grid::-webkit-scrollbar {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-
-
-    .importance-warning {
-        background: #f8f8f8;
-        padding: 15px;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: bold;
-        color: #333;
-        text-align: center;
-        margin-bottom: 15px;
-    }
-
-    .importance-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .importance-icon {
-        font-size: 24px;
-        color: #4CAF50;
-    }
-
-    .importance-content h2 {
-        font-size: 18px;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 5px;
-    }
-
-    .importance-content p {
-        font-size: 14px;
-        color: #666;
-        line-height: 1.4;
-    }
-}
-
-/* 🌍 Mobil için Genel Stil */
-@media (max-width: 768px) {
-
-
-    .top-left-logo {
-        top: 8px;
-        left: 8px;
-    }
-
-    .top-right-logo {
-        top: 8px;
-        right: 8px;
-    }
-
-
-    /* 📌 Başlık ve Açıklamalar – Küçük Ekranda Daha Uyumlu */
-    .title {
-        font-size: 1.8rem;
-        margin-bottom: 5px;
-    }
-
-    .subtitle {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-
-
-
-    /* 📌 Detay Butonu – Yarım Daire Şeklinde Sol Ortada
-    .detail-btn {
-        position: fixed;
-        bottom: 15px;
-        left: 15px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: white;
-        color: black;
-        font-size: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-        z-index: 2000;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-    } */
-
-
-
-    .modal-body {
-        padding-top: 10px;
-        overflow-y: auto;
-        max-height: 65vh;
-    }
-
-
-
-    .close-btn:hover {
-        color: red;
-    }
-
-
-    /* 📌 Sayfa Kaymasını Engelleme */
-    .fırat-content {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 100%;
-    }
-
-
-    /* 📌 Animasyonlar */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: scale(0.9);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-}
-
-@media screen and (max-width: 768px) {
-
-    .importance-warning, .importance-grid {
-        z-index: 30;
-    }
-
-
-    .title {
-        margin-top: 30px !important; /* Title biraz yukarı çekilir */
-        font-size: 22px;
-    }
-
-    .subtitle {
-        margin-top: 10px !important;
-        font-size: 16px;
-    }
-
-    .detail-btn {
-        position: fixed !important;
-        top: 50% !important;
-        left: 0 !important;
-        border-radius: 0 50% 50% 0 !important;
-        transform: translateY(-50%) !important;
-        font-size: 12px !important;
-        z-index: 100 !important;
-    }
-
-    .shift-left {
-        transform: none !important;
-    }
-
     /* Logolar */
-    .bau-logo, .tc-logo {
-        width: 40px !important;
-    }
-
-    .bau-logo {
-        left: 10px;
-        top: 10px;
-        animation: fadeInLeft 1s ease;
-    }
-
-    .tc-logo {
-        right: 10px;
+    .top-left-logo,
+    .top-right-logo {
+        width: 40px;
         top: 10px;
     }
 
     .bottom-left-logo.sifiratik-logo {
-        width: 60px !important;
-        left: 10px !important;
-        bottom: 10px !important;
+        width: 60px;
+        left: 10px;
+        bottom: 10px;
     }
 
+    /* Modal Düzeni */
     .modal {
-        height: 70vh !important;
-        width: 90% !important;
-        top: 10% !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
+        height: 70vh;
+        width: 90%;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
         overflow-y: auto;
+        max-height: 80vh;
     }
 
     .modal-body {
-        height: calc(100% - 50px) !important;
+        font-size: 14px;
         overflow-y: auto;
     }
 
@@ -3695,144 +3556,70 @@ p {
         z-index: 10;
         background: white;
     }
-    
+
+    .close-btn {
+        font-size: 18px;
+        top: 5px;
+        right: 10px;
+    }
+
+    /* Detay Butonu Aktif (kullanmak istiyorsan) */
+    .detail-btn {
+        position: fixed;
+        top: 50%;
+        left: 0;
+        border-radius: 0 50% 50% 0;
+        transform: translateY(-50%);
+        font-size: 12px;
+        z-index: 100;
+        padding: 8px;
+        background: white;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Logoların net görünmesi için ayarlar */
+    .bau-logo {
+        left: 10px;
+        top: 10px;
+    }
+
+    .tc-logo {
+        right: 10px;
+        top: 10px;
+    }
+
+    /* Başlıklar için ek ayar */
+    .title {
+        font-size: 22px;
+        margin-top: 30px;
+    }
+
     .subtitle {
         font-size: 14px;
-        margin-top: 15px !important;
+        margin-top: 10px;
     }
-}
 
-@media (max-width: 768px) {
-
-    .unique-container {
+    /* Videoların Mobil Uyumu */
+    .video-background iframe, 
+    .sak-karakter-video iframe {
         width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        text-align: center;
-        overflow: hidden;
+        height: 200px;
     }
 
-    .section-title {
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        position: relative;
-        z-index: 10;
+    /* Buton boyutları */
+    .sak-button {
+        padding: 8px 12px;
+        font-size: 12px;
+        margin: 5px;
     }
 
-    .project-grid {
-        display: flex;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        gap: 0;
-        padding-bottom: 15px;
-    }
-
-    .project-item {
-        min-width: 85%;
-        flex: none;
-        scroll-snap-align: center;
-        background: white;
-        padding: 15px;
-        border-radius: 12px;
-        box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-        text-align: center;
-        margin: 0 7.5%;
-    }
-
-    .project-item h2 {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .project-item p {
-        font-size: 14px;
-        line-height: 1.4;
-        color: #666;
-    }
-
-    /* Scrollbar'ı gizle */
+    /* Scrollbar Gizleme */
     .project-grid::-webkit-scrollbar {
         display: none;
     }
 
+    /* Genel Scroll Kontrolü */
+    .page-indicator {
+        z-index: 1000;
+    }
 }
-
-@media screen and (max-width: 768px) {
-    .page {
-      height: 100vh; /* Ekranın yüksekliğiyle sınırlı tutar */
-      overflow: hidden; /* Kaydırmayı tamamen devre dışı bırakır */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px; /* Sayfanın kenarlarından içeriğin taşmasını engeller */
-      box-sizing: border-box; /* Padding ve border dahil ölçü hesabı */
-    }
-  
-        #sak-text-container, 
-        #importance-container {
-            padding: 15px;
-            width: 90%;
-            height: auto;
-            overflow-y: auto;
-            overflow-x: hidden;
-            max-height: 90vh;
-            box-sizing: border-box;
-            margin-top: 60px;
-        }
-    
-        .sak-text-container, .importance-container {
-            width: 100%;
-            padding: 15px;
-            font-size: 14px;
-        }
-    
-        .sak-title, .importance-title {
-            font-size: 24px;
-        }
-    
-        .sak-description, .sak-card, .importance-item {
-            font-size: 14px;
-            line-height: 1.4;
-        }
-    
-        .sak-card, .importance-item {
-            padding: 10px;
-            font-size: 14px;
-        }
-
-    
-  
-    .fırat-image {
-      width: 60%;
-      height: auto;
-    }
-    
-
-    .fırat-content {
-      width: 100%;
-      padding: 10px;
-      text-align: center;
-    }
-  
-    .fırat-content .title {
-      font-size: 22px;
-    }
-  
-    .fırat-content .subtitle {
-      font-size: 14px;
-    }
-  
-
-    .top-left-logo,
-    .top-right-logo {
-      width: 40px;
-      height: auto;
-      top: 10px;
-    }
-  
-  }
-  
