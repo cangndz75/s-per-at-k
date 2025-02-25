@@ -2629,17 +2629,7 @@ body {
     animation: fadeIn 1.6s ease-in-out forwards;
 }
 
-/* Kart */
-.importance-item {
-    display: flex;
-    align-items: center;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    text-align: left;
-}
+
 
 /* ♻ İkon Stili */
 .importance-icon {
@@ -3810,8 +3800,8 @@ p {
         display: none;
     }
 
-    .project-item {
-        flex: 0 0 85%;
+    #importance-container .importance-item {
+        flex: 0 0 95%; /* burayı da 95 veya 100 yap */
         scroll-snap-align: center;
         padding: 15px;
         border-radius: 10px;
@@ -3820,7 +3810,19 @@ p {
         box-sizing: border-box;
         text-align: center;
     }
+    
 
+    .project-item {
+        flex: 0 0 95%;
+        scroll-snap-align: center;
+        padding: 15px;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.9);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+        text-align: center;
+    }
+    
     .project-item h2 {
         font-size: 18px;
         margin-bottom: 8px;
