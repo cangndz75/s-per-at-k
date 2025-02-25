@@ -3640,12 +3640,7 @@ p {
         margin-top: 15px !important;
     }
 }
-@media (max-width: 768px) {
-    body {
-      overflow-y: auto;
-    }
-  }
-  
+
 @media (max-width: 768px) {
 
     .section-title {
@@ -3761,7 +3756,8 @@ p {
         .page {
             position: relative;
             z-index: 1;
-            overflow: hidden !important;
+            overflow-y: auto;
+            overflow-x: hidden;
             height: 100vh !important;
             min-height: 100vh;
             display: flex;
