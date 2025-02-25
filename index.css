@@ -3756,9 +3756,8 @@ p {
         .page {
             position: relative;
             z-index: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
-            height: auto;
+            overflow: hidden !important;
+            height: 100vh !important;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
