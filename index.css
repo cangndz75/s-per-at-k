@@ -3803,3 +3803,24 @@ p {
         display: none !important;
     }
 }
+
+@media (max-width: 768px) {
+    .homepage-title {
+      font-size: 28px !important; /* Yazı boyutunu küçült */
+      line-height: 1.2 !important;
+      padding: 0 10px; /* Kenarlardan taşmayı önlemek için padding */
+      word-wrap: break-word; /* Uzun kelimeleri kırarak taşmayı önle */
+      text-align: center;
+    }
+  
+    .homepage-subtitle {
+      font-size: 14px !important;
+      padding: 0 15px;
+    }
+  
+    .explore-btn {
+      font-size: 14px;
+      padding: 10px 15px;
+    }
+  }
+  
