@@ -991,6 +991,7 @@ document.querySelector(".control-btn.down").addEventListener("click", nextCard);
 
 // Modal açma fonksiyonu
 function openDetail(robotId) {
+    isModalOpen = true;
     const detail = document.querySelector(`#${robotId}Detail`);
     const content = document.querySelector(`#${robotId} .${robotId}-content`);
     
@@ -1009,8 +1010,8 @@ function openDetail(robotId) {
     }, 10);
 }
 
-// Modal kapatma fonksiyonu
 function closeDetail(robotId) {
+    isModalOpen = false;
     const detail = document.querySelector(`#${robotId}Detail`);
     const content = document.querySelector(`#${robotId} .${robotId}-content`);
 
@@ -1285,13 +1286,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     document.addEventListener('touchend', (e) => {
-        let touchEndY = e.changedTouches[0].clientY;
-        if (touchStartY - touchEndY > 50) { 
-            if (currentPage < totalPages - 1) scrollToPage(currentPage + 1);
-        } else if (touchEndY - touchStartY > 50) {
-            if (currentPage > 0) scrollToPage(currentPage - 1);
-        }
-    }, { passive: true });
+    if (isModalOpen) return;
+
+    let touchEndY = e.changedTouches[0].clientY;
+    if (touchStartY - touchEndY > 50) { 
+        if (currentPage < totalPages - 1) scrollToPage(currentPage + 1);
+    } else if (touchEndY - touchStartY > 50) {
+        if (currentPage > 0) scrollToPage(currentPage - 1);
+    }
+}, { passive: true });
 
     // İlk sayfaya initialize et
     scrollToPage(0);
