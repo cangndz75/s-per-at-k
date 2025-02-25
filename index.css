@@ -3444,34 +3444,58 @@ p {
     }
 }
 
-/* Mobilde sadece tek bir öğe görünsün */
 @media (max-width: 768px) {
+    .unique-container {
+        width: 90%;
+        max-width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 24px; /* Mobil için daha küçük başlık */
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
     .project-grid {
         display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto; /* Yatay kaydırma */
-        scroll-snap-type: x mandatory; /* Kaydırma sonrası hizalama */
-        -webkit-overflow-scrolling: touch; /* Mobil kaydırmayı iyileştir */
+        flex-direction: row; /* Kartları yatay sıralar */
+        overflow-x: auto; /* Yana kaydırma */
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 15px;
+        padding: 10px;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .project-item {
-        flex: 0 0 90%; /* Kutular geniş olacak, biri ekranda tam görünsün */
+        min-width: 90%;
         max-width: 90%;
-        scroll-snap-align: center; /* Kaydırma sonrası tam ortalanacak */
-        margin: 0 5%; /* Sağ-sol boşluk */
         background: white;
-        padding: 20px;
+        padding: 15px;
         border-radius: 12px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         text-align: center;
-        transition: transform 0.3s ease-in-out;
+        scroll-snap-align: center;
+    }
+
+    .project-item h2 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 8px;
+    }
+
+    .project-item p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.4;
     }
 
     .project-grid::-webkit-scrollbar {
-        display: none; /* Mobilde scrollbar gizle */
-    }
-
-    .project-item:hover {
-        transform: scale(1.05);
+        display: none;
     }
 }

@@ -1354,23 +1354,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         </script>
         <script>
-                document.addEventListener("DOMContentLoaded", function () {
-        if (window.innerWidth <= 768) { // Sadece mobil için uygula
-            const projectGrid = document.querySelector(".project-grid");
-            let touchStartX = 0;
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.innerWidth <= 768) { // Sadece mobilde çalıştır
+        const projectGrid = document.querySelector(".project-grid");
+        let touchStartX = 0;
 
-            projectGrid.addEventListener("touchstart", (e) => {
-                touchStartX = e.touches[0].clientX;
-            }, { passive: true });
+        projectGrid.addEventListener("touchstart", (e) => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
 
-            projectGrid.addEventListener("touchmove", (e) => {
-                let touchEndX = e.touches[0].clientX;
-                let deltaX = touchStartX - touchEndX;
-                projectGrid.scrollLeft += deltaX;
-                touchStartX = touchEndX;
-            }, { passive: true });
-        }
-    });
+        projectGrid.addEventListener("touchmove", (e) => {
+            let touchEndX = e.touches[0].clientX;
+            let deltaX = touchStartX - touchEndX;
+            projectGrid.scrollLeft += deltaX;
+            touchStartX = touchEndX;
+        }, { passive: true });
+    }
+});
+
+
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
