@@ -3680,9 +3680,17 @@ p {
 }
 
 @media (max-width: 768px) {
-    #sak-text-container,
-    #importance-container {
-      display: none !important;
+    .indicator[data-page="innovative-project"] {
+      display: none !important; /* innovative-project sonrası indicator gizlendi */
+    }
+  
+    .indicator[data-page="firat"] {
+      display: block !important; /* Fırat indicator görünür yapıldı */
+    }
+  
+    #importance-container,
+    #sak-text-container {
+      display: none !important; /* Aradaki gereksiz içerikler mobilde gizlendi */
     }
   }
   
