@@ -2716,10 +2716,6 @@ body {
         font-size: 1.1rem;
     }
 
-    #innovative-project .video-background {
-        display: none !important;
-    }
-
     .importance-item {
         flex-direction: column;
         text-align: center;
@@ -3700,7 +3696,7 @@ p {
     
         /* Page indicator mobilde en üstte kalmalı */
         .page-indicator {
-            z-index: 1000 !important;
+            z-index: 1000;
         }
     }
     
@@ -3865,19 +3861,6 @@ p {
         gap: 10px !important;
         scroll-snap-type: x mandatory !important;
         padding-bottom: 10px !important;
-    }
-    
-    .importance-item, .project-item {
-        flex: 0 0 85% !important;
-        max-width: 85% !important;
-        padding: 15px !important;
-        scroll-snap-align: center !important;
-        background: white !important;
-        border-radius: 8px !important;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1) !important;
-        box-sizing: border-box !important;
-        height: auto !important;
-        overflow-y: auto !important;
     }
 
     .importance-content h2 {
