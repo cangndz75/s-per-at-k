@@ -3679,35 +3679,8 @@ p {
 
 }
 
-@media (max-width: 768px) {
-    .indicator[data-page="innovative-project"] {
-      display: none !important; /* innovative-project sonrası indicator gizlendi */
-    }
-  
-    .indicator[data-page="firat"] {
-      display: block !important; /* Fırat indicator görünür yapıldı */
-    }
-  
-    #importance-container,
-    #sak-text-container {
-      display: none !important; /* Aradaki gereksiz içerikler mobilde gizlendi */
-    }
-  }
-  
-
 @media screen and (max-width: 768px) {
-    .page {
-      height: 100vh; /* Ekranın yüksekliğiyle sınırlı tutar */
-      overflow-y: hidden; /* dikey kaydırmayı devre dışı bırak */
-      overflow-x: hidden !important;
-      position: relative;
-    display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px; /* Sayfanın kenarlarından içeriğin taşmasını engeller */
-      box-sizing: border-box; /* Padding ve border dahil ölçü hesabı */
-    }
-  
+
     
         .sak-title, .importance-title {
             font-size: 24px;
@@ -3830,5 +3803,119 @@ p {
       font-size: 14px;
       padding: 10px 15px;
     }
+
+    #sak-text-container,
+    #importance-container {
+      padding: 15px;
+      width: 90%;
+      height: calc(100vh - 60px); /* Başlık için üstte bıraktığın boşluğu düş */
+      overflow-y: auto; /* Sadece bu alanda scroll edilebilir */
+      overflow-x: hidden;
+      box-sizing: border-box;
+      margin-top: 60px;
+      position: relative;
+      z-index: 10;
+    }
+
   }
   
+  @media screen and (max-width: 768px) {
+    .page {
+        height: auto; /* içeriğe göre uzasın */
+        min-height: 100vh; /* en az ekran yüksekliği kadar olsun */
+        overflow-y: auto; /* dikey kaydırmaya izin ver */
+        overflow-x: hidden; /* yatay taşmayı engelle */
+        padding: 10px;
+        box-sizing: border-box;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* içeriği üstten hizala */
+        align-items: center;
+    }
+
+    .page-indicator {
+        z-index: 9999;
+        position: fixed;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+    }
+}
+
+/* Web için yan yana grid düzeni */
+#importance-container .importance-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+}
+
+/* Mobil için dikey akış */
+@media screen and (max-width: 768px) {
+/* Genel Web Düzeni (importance-container) */
+#importance-container .importance-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+}
+
+/* importance-warning genel stil */
+.importance-warning {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+    /* importance-warning mobilde gizli */
+    #importance-container .importance-warning {
+        display: none;
+    }
+
+    /* importance-container düzeni */
+    #importance-container {
+        padding: 10px !important;
+        box-sizing: border-box;
+    }
+
+    /* Yatay kayan importance-grid mobil stil */
+    #importance-container .importance-grid {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        width: 100%;
+        gap: 10px;
+        padding-bottom: 15px;
+        scroll-snap-type: x mandatory;
+    }
+
+    #importance-container .importance-item {
+        flex: 0 0 85%; /* Daha rahat kart gösterimi */
+        scroll-snap-align: center;
+        padding: 15px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        background: white;
+        box-sizing: border-box;
+    }
+
+    /* Başlık düzeni mobil */
+    #importance-container .importance-title {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    /* video container mobilde daha düzgün görünsün */
+    .sak-video-container {
+        margin-top: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
