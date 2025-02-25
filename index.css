@@ -836,6 +836,10 @@ body {
     display: none;
 }
 
+.indicator[data-page="sak-text-container"]:hover::after {
+    display: none;
+}
+
 /* MetalCan Hover */
 .indicator[data-page="metalcan"]:hover::after {
     background-image: url('./img/petsu.png'); 
@@ -3902,5 +3906,105 @@ p {
     /* Modal Açıkken Arka Sayfa Geçişlerini Engelleme */
     body.modal-open {
         overflow: hidden !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #sak-text-container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        box-sizing: border-box;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .sak-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .sak-description {
+        font-size: 14px;
+        margin-bottom: 15px;
+        padding: 0 5px;
+    }
+
+    .sak-goals {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+
+    .sak-card {
+        flex: 0 0 90%;
+        scroll-snap-align: center;
+        background: rgba(255,255,255,0.9);
+        border-radius: 10px;
+        padding: 20px 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        font-size: 14px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sak-card span {
+        font-size: 20px;
+        margin-right: 8px;
+    }
+
+    .sak-video-container {
+        width: 100%;
+        height: 200px;
+        position: relative;
+        margin-top: 10px;
+    }
+
+    .sak-karakter-video iframe {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 10px;
+    }
+
+    .sak-buton-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .sak-button {
+        padding: 8px 15px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: none;
+        background: #007bff;
+        color: white;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .sak-button i {
+        margin-right: 5px;
+    }
+
+    .sak-button:hover {
+        background: #0056b3;
+    }
+
+    /* Scrollbar'ı gizle */
+    .sak-goals::-webkit-scrollbar {
+        display: none;
     }
 }
