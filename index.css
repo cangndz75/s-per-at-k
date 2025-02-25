@@ -2068,7 +2068,11 @@ body {
         text-align: center;
     }
 
-    .continue-text { font-size: 18px; margin-bottom: 10px; color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .continue-text {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color:black;
+    }
 }
 
 /* Masaüstü görünümü etkilenmesin */
