@@ -3892,20 +3892,60 @@ p {
 
 
 @media screen and (max-width: 768px) {
-    /* Tüm kahraman resimleri için genel stiller */
+
+    /* Pamuk Abla yazısının boyutu küçültülüp daha düzgün hizalanır */
+    #pamuk-abla .subtitle {
+        font-size: 14px !important;
+        padding: 0 12px;
+    }
+
+    /* Orat (balca-image) boyutu artırılır */
+    .balca-image {
+        width: 90% !important;
+        max-width: 380px !important;
+    }
+
+    /* Sıfat-image küçültülür */
+    .sıfat-image {
+        width: 60% !important;
+        max-width: 250px !important;
+        margin-top: 10px !important;
+    }
+
+    /* Petsu için arkaplan mobil optimizasyonu */
+    #metalcan {
+        background: url('./img/petsuarkaplan.png') no-repeat center center !important;
+        background-size: cover !important;
+        background-position: center top !important;
+    }
+
+    /* Tüm hero görselleri responsive olacak şekilde düzenlenir */
     .fırat-image,
     .sıfat-image,
     .camsu-image,
     .robot-image,
     .piri-image,
-    .elektroman-image {
-        width: 70%; /* ekran genişliğinin %70-80'i arası ideal bir boyut */
-        max-width: 350px;
+    .elektroman-image,
+    .balca-image {
+        width: 80%;
+        max-width: 320px;
         height: auto;
-        opacity: 0;
-        transform: scale(0.9);
-        animation: fadeZoom 1s ease-in-out forwards;
-        margin: 0 auto; /* ortala */
         display: block;
+        margin: 0 auto;
+    }
+
+
+
+    .subtitle {
+        font-size: 16px !important;
+        margin: 10px 0 20px;
+        text-align: center;
+        padding: 0 15px;
+        line-height: 1.4;
+    }
+
+    /* Footer düzenlemesi */
+    .footer {
+        font-size: 12px !important;
     }
 }
