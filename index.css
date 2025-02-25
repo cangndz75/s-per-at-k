@@ -3640,7 +3640,12 @@ p {
         margin-top: 15px !important;
     }
 }
-
+@media (max-width: 768px) {
+    body {
+      overflow-y: auto;
+    }
+  }
+  
 @media (max-width: 768px) {
 
     .section-title {

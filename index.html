@@ -800,28 +800,30 @@ function applyCircleTransition(targetPage) {
 }
     
 function scrollToPage(page) {
-    if (page >= 0 && page < totalPages) {
-        pages.forEach((p, index) => {
-            if (index === page) {
-                p.classList.add("active");
-                p.style.display = "flex";
-            } else {
-                p.classList.remove("active");
-                p.style.display = "none";
-            }
-        });
-
-        // Homepage'de Detay butonunu gizle
-        const detailButton = document.querySelector(".detail-btn");
-        if (page === 0) {
-            detailButton.style.display = "none";
+  if (page >= 0 && page < totalPages) {
+    if (window.innerWidth > 768) {
+      // Desktop davranışı: display:none/flex
+      pages.forEach((p, index) => {
+        if (index === page) {
+          p.classList.add("active");
+          p.style.display = "flex";
         } else {
-            detailButton.style.display = "flex";
+          p.classList.remove("active");
+          p.style.display = "none";
         }
-
-        currentPage = page;
-        updateIndicators();
+      });
+    } else {
+      // Mobil davranışı: her sayfayı translateY ile kaydır
+      pages.forEach((p, index) => {
+        // Örneğin, aktif sayfa 0vh, üstündekiler -100vh, altındakiler 100vh vb.
+        p.style.transform = `translateY(${(index - page) * 100}vh)`;
+        // Her sayfayı görünür yap (display flex)
+        p.style.display = "flex";
+      });
     }
+    currentPage = page;
+    updateIndicators();
+  }
 }
 
 
