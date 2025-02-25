@@ -3566,3 +3566,161 @@ p {
         line-height: 1.4;
     }
 }
+
+/* 🌍 Mobil için Genel Stil */
+@media (max-width: 768px) {
+
+    /* 📌 Logoların Konumu ve Animasyonu */
+    .top-left-logo, .top-right-logo {
+        position: absolute;
+        width: 60px; /* Mobilde daha küçük */
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .top-left-logo {
+        top: 8px;
+        left: 8px;
+    }
+
+    .top-right-logo {
+        top: 8px;
+        right: 8px;
+    }
+
+    /* 📌 Karakter Görseli – Küçültülerek Merkezi Konumlandırma */
+    .fırat-image {
+        max-width: 50%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    /* 📌 Başlık ve Açıklamalar – Küçük Ekranda Daha Uyumlu */
+    .title {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    /* 📌 Sıfır Atık Logosu – Sol Alt Köşeye Küçültülerek Sabitlendi */
+    .bottom-left-logo {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        width: 50px; /* Küçültüldü */
+    }
+
+    /* 📌 Detay Butonu – Yarım Daire Şeklinde Sol Ortada */
+    .detail-btn {
+        position: fixed;
+        bottom: 15px;
+        left: 15px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: white;
+        color: black;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        z-index: 2000;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* 📌 Modal İçeriği – Başlık Sabit, İçerik Kaydırılabilir */
+    .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-height: 75vh;
+        overflow-y: auto;
+        background: #fff;
+        z-index: 9999;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .modal-header {
+        position: sticky;
+        top: 0;
+        background: white;
+        z-index: 1000;
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-body {
+        padding-top: 10px;
+        overflow-y: auto;
+        max-height: 65vh;
+    }
+
+    /* 📌 Kapatma Butonu */
+    .close-btn {
+        cursor: pointer;
+        font-size: 18px;
+        background: none;
+        border: none;
+        color: #666;
+        transition: color 0.3s ease;
+    }
+
+    .close-btn:hover {
+        color: red;
+    }
+
+    /* 📌 Footer */
+    .footer {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background: rgba(0,0,0,0.4);
+        padding: 5px 10px;
+        border-radius: 8px;
+        font-size: 12px;
+        color: white;
+        z-index: 2000;
+    }
+
+    /* 📌 Sayfa Kaymasını Engelleme */
+    .fırat-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* 📌 Modal Açıldığında Karakter Kaymasını Engelleme */
+    .modal.active {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* 📌 Animasyonlar */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
