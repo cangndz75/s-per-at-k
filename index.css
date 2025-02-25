@@ -3459,8 +3459,14 @@ p {
         margin-bottom: 20px;
     }
 
+    .project-grid {
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: auto;
+        padding-bottom: 80px; /* Alt kısım için alan aç */
+      }
 
-/* 
     .project-item {
         min-width: 90%;
         max-width: 90%;
@@ -3470,7 +3476,7 @@ p {
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         text-align: center;
         scroll-snap-align: center;
-    } */
+    } 
 
     .project-item h2 {
         font-size: 18px;
@@ -3560,12 +3566,6 @@ p {
 /* 🌍 Mobil için Genel Stil */
 @media (max-width: 768px) {
 
-    /* 📌 Logoların Konumu ve Animasyonu */
-    .top-left-logo, .top-right-logo {
-        position: absolute;
-        width: 60px; /* Mobilde daha küçük */
-        animation: fadeIn 1s ease-in-out;
-    }
 
     .top-left-logo {
         top: 8px;
@@ -3651,11 +3651,6 @@ p {
 }
 
 @media screen and (max-width: 768px) {
-    .page {
-        overflow-y: visible;
-        overflow-x: hidden;
-    }
-
     .importance-container {
         position: relative;
         z-index: 20 !important;
@@ -3667,15 +3662,6 @@ p {
         z-index: 30;
     }
 
-    .fırat-content, .fırat-content {
-        padding-top: 10vh; /* içerik yukarıya taşınsın */
-    }
-
-    .fırat-image {
-        max-height: 40vh !important; /* Karakter küçültülür */
-        width: auto !important;
-        margin-top: 20px;
-    }
 
     .title {
         margin-top: 30px !important; /* Title biraz yukarı çekilir */
@@ -3697,7 +3683,6 @@ p {
         z-index: 100 !important;
     }
 
-    /* Modal açılınca içerik sola kaymaz (shift_left devre dışı) */
     .shift-left {
         transform: none !important;
     }
@@ -3745,28 +3730,144 @@ p {
         background: white;
     }
     
-    /* Kartlar daha uzun olacak ve yan kaydırma olmayacak */
-    .project-grid {
-        flex-direction: column !important;
-        gap: 15px !important;
-    }
-
-    .project-item {
-        min-height: 160px !important;
-        margin-bottom: 20px;
-        padding: 15px !important;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .project-grid {
-        overflow-x: hidden !important; /* Yatay kaydırma kapalı */
-        overflow-y: auto;
-        height: auto !important;
-    }
-
     .subtitle {
         font-size: 14px;
         margin-top: 15px !important;
     }
 }
+
+@media (max-width: 768px) {
+
+    .unique-container {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .section-title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .project-grid {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 0;
+        padding-bottom: 15px;
+    }
+
+    .project-item {
+        min-width: 85%;
+        flex: none;
+        scroll-snap-align: center;
+        background: white;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+        text-align: center;
+        margin: 0 7.5%;
+    }
+
+    .project-item h2 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .project-item p {
+        font-size: 14px;
+        line-height: 1.4;
+        color: #666;
+    }
+
+    /* Scrollbar'ı gizle */
+    .project-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .page {
+      height: 100vh; /* Ekranın yüksekliğiyle sınırlı tutar */
+      overflow: hidden; /* Kaydırmayı tamamen devre dışı bırakır */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px; /* Sayfanın kenarlarından içeriğin taşmasını engeller */
+      box-sizing: border-box; /* Padding ve border dahil ölçü hesabı */
+    }
+  
+    .sak-text-container {
+      width: 95%; /* Konteyner genişliğini ekranın tamamına yakın tutar */
+      max-height: 90vh; /* Ekranın yüksekliğini aşmasını engeller */
+      overflow: hidden; /* İçerik taşarsa gizler */
+      padding: 10px; /* Padding'i azaltarak yer kazanılır */
+      box-sizing: border-box;
+    }
+  
+    .sak-title {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+  
+    .sak-description {
+      font-size: 13px;
+      line-height: 1.3;
+    }
+  
+    .sak-card {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+  
+    .detail-btn {
+      position: absolute;
+      bottom: 15px;
+      width: auto;
+    }
+  
+    .fırat-image {
+      width: 60%;
+      height: auto;
+    }
+    
+    /* .detail-btn {
+      font-size: 14px;
+      padding: 8px 12px;
+      position: static;
+      margin-bottom: 10px;
+    }
+   */
+    .fırat-content {
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+    }
+  
+    .fırat-content .title {
+      font-size: 22px;
+    }
+  
+    .fırat-content .subtitle {
+      font-size: 14px;
+    }
+  
+
+    .top-left-logo,
+    .top-right-logo {
+      width: 40px;
+      height: auto;
+      top: 10px;
+    }
+  
+  }
+  
