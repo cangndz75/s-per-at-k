@@ -989,6 +989,7 @@ document.querySelector(".control-btn.down").addEventListener("click", nextCard);
 // document.querySelector(".control-btn.detail").addEventListener("click", openDetail);
 // document.querySelector(".close-btn").addEventListener("click", closeDetail);
 
+// Modal açma fonksiyonu
 function openDetail(robotId) {
     const detail = document.querySelector(`#${robotId}Detail`);
     const content = document.querySelector(`#${robotId} .${robotId}-content`);
@@ -997,6 +998,7 @@ function openDetail(robotId) {
         console.error(`Hata: ${robotId} için içerik veya detay bölümü bulunamadı!`);
         return;
     }
+
     detail.classList.add("active");
     detail.style.display = "block";
     content.classList.add("shift-left"); // İçeriği sola kaydır
@@ -1007,6 +1009,7 @@ function openDetail(robotId) {
     }, 10);
 }
 
+// Modal kapatma fonksiyonu
 function closeDetail(robotId) {
     const detail = document.querySelector(`#${robotId}Detail`);
     const content = document.querySelector(`#${robotId} .${robotId}-content`);
@@ -1015,6 +1018,7 @@ function closeDetail(robotId) {
         console.error(`Hata: ${robotId} için içerik veya detay bölümü bulunamadı!`);
         return;
     }
+
     detail.classList.remove("active");
     detail.style.display = "none";
     content.classList.remove("shift-left"); // İçeriği geri al
@@ -1041,37 +1045,21 @@ function outsideClickHandler(event) {
     }
 }
 
-document.addEventListener("wheel", (event) => {
-    if (!document.body.classList.contains("modal-open") && !isScrolling) {
-        isScrolling = true;
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".detail-btn").forEach((button) => {
+        button.addEventListener("click", function () {
+            const robotId = this.getAttribute("onclick").match(/'([^']+)'/)[1];
+            openDetail(robotId);
+        });
+    });
 
-        if (event.deltaY > 0 && currentPage < totalPages - 1) {
-            scrollToPage(currentPage + 1);
-        } else if (event.deltaY < 0 && currentPage > 0) {
-            scrollToPage(currentPage - 1);
-        }
-
-        setTimeout(() => isScrolling = false, 800);
-    }
+    document.querySelectorAll(".back-btn").forEach((button) => {
+        button.addEventListener("click", function () {
+            const robotId = this.getAttribute("onclick").match(/'([^']+)'/)[1];
+            closeDetail(robotId);
+        });
+    });
 });
-
-// Mobil (touch event) için de aynı kontrolü ekleyin
-let touchStartY = 0;
-
-document.addEventListener('touchstart', e => {
-    touchStartY = e.touches[0].clientY;
-}, { passive: true });
-
-document.addEventListener('touchend', e => {
-    if (!document.body.classList.contains("modal-open")) {
-        let touchEndY = e.changedTouches[0].clientY;
-        if (touchStartY - touchEndY > 50 && currentPage < totalPages - 1) {
-            scrollToPage(currentPage + 1);
-        } else if (touchEndY - touchStartY > 50 && currentPage > 0) {
-            scrollToPage(currentPage - 1);
-        }
-    }
-}, { passive: true });
         </script>
         <script>
             function scrollToMission() {
@@ -1281,15 +1269,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     document.addEventListener('touchend', (e) => {
-    if (isModalOpen) return;
-
-    let touchEndY = e.changedTouches[0].clientY;
-    if (touchStartY - touchEndY > 50) { 
-        if (currentPage < totalPages - 1) scrollToPage(currentPage + 1);
-    } else if (touchEndY - touchStartY > 50) {
-        if (currentPage > 0) scrollToPage(currentPage - 1);
-    }
-}, { passive: true });
+        let touchEndY = e.changedTouches[0].clientY;
+        if (touchStartY - touchEndY > 50) { 
+            if (currentPage < totalPages - 1) scrollToPage(currentPage + 1);
+        } else if (touchEndY - touchStartY > 50) {
+            if (currentPage > 0) scrollToPage(currentPage - 1);
+        }
+    }, { passive: true });
 
     // İlk sayfaya initialize et
     scrollToPage(0);
