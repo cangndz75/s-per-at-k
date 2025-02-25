@@ -3709,54 +3709,59 @@ p {
         padding: 10px;
         box-sizing: border-box;
         text-align: center;
-        overflow: hidden;
     }
 
     .section-title {
         font-size: 22px;
         font-weight: bold;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         position: relative;
         z-index: 10;
     }
 
     .project-grid {
         display: flex;
+        flex-direction: row;
         overflow-x: auto;
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        gap: 0;
-        padding-bottom: 15px;
+        width: 100%;
+        padding: 15px 0;
+        gap: 10px;
+        box-sizing: border-box;
     }
 
     .project-item {
-        min-width: 85%;
-        flex: none;
-        scroll-snap-align: center;
+        flex: 0 0 85%;
         background: white;
         padding: 15px;
         border-radius: 12px;
         box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
         text-align: center;
-        margin: 0 7.5%;
+        scroll-snap-align: center;
     }
 
     .project-item h2 {
         font-size: 18px;
         font-weight: bold;
-        margin-bottom: 10px;
+        color: #333;
+        margin-bottom: 8px;
     }
 
     .project-item p {
         font-size: 14px;
-        line-height: 1.4;
         color: #666;
+        line-height: 1.4;
     }
 
     /* Scrollbar'ı gizle */
     .project-grid::-webkit-scrollbar {
         display: none;
+    }
+
+    .sak-button {
+        display: none !important;
     }
 
 }
