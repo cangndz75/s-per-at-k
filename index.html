@@ -997,7 +997,6 @@ function openDetail(robotId) {
         console.error(`Hata: ${robotId} için içerik veya detay bölümü bulunamadı!`);
         return;
     }
-    document.body.classList.add("modal-open");
     detail.classList.add("active");
     detail.style.display = "block";
     content.classList.add("shift-left"); // İçeriği sola kaydır
@@ -1016,7 +1015,6 @@ function closeDetail(robotId) {
         console.error(`Hata: ${robotId} için içerik veya detay bölümü bulunamadı!`);
         return;
     }
-    document.body.classList.remove("modal-open");
     detail.classList.remove("active");
     detail.style.display = "none";
     content.classList.remove("shift-left"); // İçeriği geri al
