@@ -3747,6 +3747,12 @@ p {
         margin-top: 10px !important;
     }
 
+    .fırat-image {
+        width: 60% !important;
+        max-width: 250px !important;
+        margin-top: 10px !important;
+    }
+
     /* Petsu için arkaplan mobil optimizasyonu */
     #metalcan {
         background: url('./img/petsuarkaplan.png') no-repeat center center !important;
@@ -3755,7 +3761,6 @@ p {
     }
 
     /* Tüm hero görselleri responsive olacak şekilde düzenlenir */
-    .fırat-image,
     .sıfat-image,
     .camsu-image,
     .robot-image,
