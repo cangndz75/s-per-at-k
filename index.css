@@ -3790,10 +3790,13 @@ p {
     .unique-container {
         width: 100%;
         height: 100%;
-        overflow-y: hidden;
+        overflow: hidden; /* taşmayı engelle */
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center; /* Dikeyde ortala */
+        padding: 10px 0 !important;
+        box-sizing: border-box;
     }
 
     .project-grid::-webkit-scrollbar {
@@ -3811,11 +3814,21 @@ p {
         text-align: center;
     }
     
+    .project-grid {
+        width: 100% !important;
+        display: flex !important;
+        overflow-x: auto !important;
+        gap: 10px !important;
+        scroll-snap-type: x mandatory !important;
+        padding-bottom: 10px !important;
+        align-items: center !important; /* dikey ortala */
+    }
 
     .project-item {
-        flex: 0 0 95%;
+        flex: 0 0 95%; /* genişliği arttır */
+        padding: 25px 15px !important; /* yüksekliği arttır */
+        margin: auto 0; /* dikey ortala */
         scroll-snap-align: center;
-        padding: 15px;
         border-radius: 10px;
         background: rgba(255,255,255,0.9);
         box-shadow: 0 3px 10px rgba(0,0,0,0.1);
