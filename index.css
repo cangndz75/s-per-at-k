@@ -836,15 +836,15 @@ body {
     display: none;
 }
 
-.indicator[data-page="project-importance"]:hover::after {
-    display: none;
-}
-
 .indicator[data-page="innovative-project"]:hover::after {
     display: none;
 }
 
-.indicator[data-page="sak-textContainer"]:hover::after {
+.indicator[data-page="importance-container"]:hover::after {
+    display: none;
+}
+
+.indicator[data-page="sak-text-container"]:hover::after {
     display: none;
 }
 
