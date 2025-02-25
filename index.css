@@ -2716,6 +2716,10 @@ body {
         font-size: 1.1rem;
     }
 
+    #innovative-project .video-background {
+        display: none !important;
+    }
+
     .importance-item {
         flex-direction: column;
         text-align: center;
@@ -3416,11 +3420,6 @@ p {
         margin-bottom: 15px;
     }
 
-    .importance-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
 
     .importance-icon {
         font-size: 24px;
@@ -3679,16 +3678,13 @@ p {
 
     @media screen and (max-width: 768px) {
         .page {
-            position: relative;
-            z-index: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
             height: 100vh !important;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden !important; /* dikey taşmayı kaldır */
+            padding: 10px 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            box-sizing: border-box !important;
         }
 
         .project-item {
@@ -3704,7 +3700,7 @@ p {
     
         /* Page indicator mobilde en üstte kalmalı */
         .page-indicator {
-            z-index: 1000;
+            z-index: 1000 !important;
         }
     }
     
@@ -3794,19 +3790,6 @@ p {
 
 @media screen and (max-width: 768px) {
 
-    #innovative-project {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        padding: 15px;
-        box-sizing: border-box;
-        overflow: hidden;
-        background: #f0f8ff; /* Açık arka plan rengi */
-    }
-
     /* Video mobilde kaldırıldı */
     #innovative-project .video-background {
         display: none !important;
@@ -3819,22 +3802,6 @@ p {
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
-
-    .section-title {
-        font-size: 22px;
-        margin-bottom: 15px;
-        text-align: center;
-    }
-
-    .project-grid {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        width: 100%;
-        gap: 10px;
-        padding-bottom: 15px;
-        scroll-snap-type: x mandatory;
     }
 
     .project-grid::-webkit-scrollbar {
@@ -3866,48 +3833,51 @@ p {
         display: none;
     }
 
-    /* importance-container kısmı için */
-    #importance-container {
-        position: relative;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 15px;
-        box-sizing: border-box;
-        overflow: hidden;
-        background: linear-gradient(to bottom, #e6f2ff, #fff);
+#importance-container, 
+    #innovative-project {
+        height: 100vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
     }
 
-    .importance-title {
-        font-size: 22px;
-        margin-bottom: 15px;
-        text-align: center;
+    .section-title, .importance-title {
+        font-size: 18px !important;
+        text-align: center !important;
+        margin-top: 0 !important;
+        margin-bottom: 10px !important;
     }
+
 
     .importance-warning {
         display: none !important;
     }
 
-    .importance-grid {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        gap: 10px;
-        width: 100%;
-        padding-bottom: 10px;
-        scroll-snap-type: x mandatory;
+    .importance-grid, .project-grid {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        gap: 10px !important;
+        scroll-snap-type: x mandatory !important;
+        padding-bottom: 10px !important;
     }
-
-    .importance-item {
-        flex: 0 0 85%;
-        scroll-snap-align: center;
-        padding: 15px;
-        border-radius: 10px;
-        background: rgba(255,255,255,0.9);
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        box-sizing: border-box;
+    
+    .importance-item, .project-item {
+        flex: 0 0 85% !important;
+        max-width: 85% !important;
+        padding: 15px !important;
+        scroll-snap-align: center !important;
+        background: white !important;
+        border-radius: 8px !important;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1) !important;
+        box-sizing: border-box !important;
+        height: auto !important;
+        overflow-y: auto !important;
     }
 
     .importance-content h2 {

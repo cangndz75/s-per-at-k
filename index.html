@@ -989,9 +989,9 @@ document.querySelector(".control-btn.down").addEventListener("click", nextCard);
 // document.querySelector(".control-btn.detail").addEventListener("click", openDetail);
 // document.querySelector(".close-btn").addEventListener("click", closeDetail);
 
-// Modal açma fonksiyonu
+let modalOpen = false;
 function openDetail(robotId) {
-    isModalOpen = true;
+    modalOpen = true;
     const detail = document.querySelector(`#${robotId}Detail`);
     const content = document.querySelector(`#${robotId} .${robotId}-content`);
     
@@ -1011,7 +1011,7 @@ function openDetail(robotId) {
 }
 
 function closeDetail(robotId) {
-    isModalOpen = false;
+    modalOpen = false;
     const detail = document.querySelector(`#${robotId}Detail`);
     const content = document.querySelector(`#${robotId} .${robotId}-content`);
 
@@ -1286,7 +1286,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     document.addEventListener('touchend', (e) => {
-    if (isModalOpen) return;
+    if (modalOpen) return;
 
     let touchEndY = e.changedTouches[0].clientY;
     if (touchStartY - touchEndY > 50) { 
