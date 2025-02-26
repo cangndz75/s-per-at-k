@@ -16,7 +16,7 @@
         <div class="indicator active" data-page="homepage"></div>
         <div class="indicator" data-page="innovative-project"></div>
         <div class="indicator" data-page="importance-container"></div>
-        <div class="indicator" data-page="sak-text-container"></div>
+        <div class="indicator" data-page="modern-container"></div>
         <div class="indicator" data-page="fırat"></div>
         <div class="indicator" data-page="sıfat"></div>
         <div class="indicator" data-page="camsu"></div>
@@ -130,47 +130,62 @@
             
     </div>
 
-    <!-- <div class="page" id="sak-text-container">
-            <h1 class="sak-title">🌍 SIFIR ATIK KAHRAMANLARI</h1>
-            <p class="sak-description">
-                Çizgi film animasyonlarıyla çevre sorunlarına dikkat çekmek, toplumsal bilinci artırmak ve eğitim süreçlerini verimli hale getirmek amacıyla tasarlanmış örnek bir sosyal sorumluluk projesidir.
+    <div class="page">
+
+        <div class="modern-container">
+    
+            <!-- Başlık -->
+            <h1 class="modern-title">SIFIR ATIK KAHRAMANLARI</h1>
+            <p class="modern-subtitle">
+                Çizgi film animasyonlarıyla çevre sorunlarına dikkat çekmek, toplumsal bilinci artırmak ve eğitim süreçlerini verimli hale getirmek amacıyla tasarlanmış bir sosyal sorumluluk projesidir.
             </p>
-            <div class="sak-goals">
-                <div class="sak-card">
-                    <span>🌱</span> Çevre kirliliğini önlemek ve yeşil alanları korumak
+    
+            <!-- Bilgi Kartları -->
+            <div class="modern-card-container">
+                <div class="modern-card">
+                    <div class="modern-card-icon">🌱</div>
+                    <div class="modern-card-content">Çevre kirliliğini önlemek ve yeşil alanları korumak</div>
                 </div>
-                <div class="sak-card">
-                    <span>♻️</span> Geri dönüşüm sürecini gerçek anlamda işler hale getirmek
+    
+                <div class="modern-card">
+                    <div class="modern-card-icon">♻️</div>
+                    <div class="modern-card-content">Geri dönüşüm sürecini gerçek anlamda işler hale getirmek</div>
                 </div>
-                <div class="sak-card">
-                    <span>📊</span> Türkiye’deki geri kazanım oranını %20'den %50'ye çıkarmak
+    
+                <div class="modern-card">
+                    <div class="modern-card-icon">📊</div>
+                    <div class="modern-card-content">Türkiye’deki geri kazanım oranını %20'den %50’ye çıkarmak</div>
                 </div>
-                <div class="sak-card">
-                    <span>🌍</span> Paris İklim Anlaşması çerçevesinde sera gazı emisyonlarını azaltmak
+    
+                <div class="modern-card">
+                    <div class="modern-card-icon">🌍</div>
+                    <div class="modern-card-content">Paris İklim Anlaşması çerçevesinde sera gazı emisyonlarını azaltmak</div>
                 </div>
-
             </div>
-
-        <!-- <div class="sak-video-container" >
-            <div class="sak-karakter-video">
+    
+            <!-- Video Bölümü -->
+            <div class="modern-video-wrapper" id="videoContainer">
                 <iframe 
-                id="sak-karakterVideo"
-                src="https://player.vimeo.com/video/1059552732?badge=0&amp;autopause=0&amp;loop=1&amp;background=1&amp;muted=1&amp;controls=0"
-                frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                allowfullscreen
-                style="width:100%; height:100%;"
-                title="saktanitim">
-            </iframe>
+                    id="modern-video"
+                    src="https://player.vimeo.com/video/1059552732?badge=0&amp;autopause=0&amp;loop=1&amp;background=1&amp;muted=1&amp;controls=1"
+                    frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                    allowfullscreen
+                    class="modern-video">
+                </iframe>
             </div>
-        </div> -->
-        
-        <!-- <div class="sak-buton-container">
-            <button id="sak-playPauseBtn" class="sak-button"><i class="fas fa-pause"></i> Durdur</button>
-            <button id="sak-fullscreenBtn" class="sak-button"><i class="fas fa-expand"></i> Tam Ekran</button>
-        </div> -->
+    
+            <!-- Butonlar -->
+            <div class="modern-video-buttons">
+                <button class="modern-button pause-btn" onclick="toggleVideo()">Durdur</button>
+                <button class="modern-button fullscreen-btn" onclick="toggleFullscreen()">Tam Ekran</button>
+                <button class="modern-button minimize-btn" onclick="exitFullscreen()" style="display: none;">Küçült</button>
+            </div>
+    
+        </div>
+    
     </div>
-
+    
     <div class="page" id="fırat">
         <img src="img/bau.png" alt="BAU Logo" class="top-left-logo bau-logo">
         <img src="img/tc.png" alt="TC Logo" class="top-right-logo tc-logo">
@@ -1104,40 +1119,69 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
         </script>
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const videoContainer = document.querySelector(".sifir-atik-video-wrapper");
-        const video = document.querySelector(".sifir-atik-video");
-        const fullscreenButton = document.getElementById("fullscreenBtn");
-        const playPauseButton = document.getElementById("playPauseBtn");
-        const buttons = document.querySelector(".sifir-atik-buttons");
-        let isFullscreen = false;
-    
-        // 🎥 Video Oynat / Durdur
-        playPauseButton.addEventListener("click", () => {
-            if (video.paused) {
-                video.play();
-                playPauseButton.innerHTML = '<i class="fas fa-pause"></i> Durdur';
-            } else {
-                video.pause();
-                playPauseButton.innerHTML = '<i class="fas fa-play"></i> Oynat';
-            }
-        });
-    
-        // ⛶ TAM EKRAN MODU (%80 video - %20 butonlar)
-        fullscreenButton.addEventListener("click", () => {
-            videoContainer.classList.toggle("sifir-atik-fullscreen");
-    
-            if (videoContainer.classList.contains("sifir-atik-fullscreen")) {
-                fullscreenButton.innerHTML = '<i class="fas fa-compress"></i> Küçült';
-                buttons.classList.add("fixed"); // Butonları sabitle
-            } else {
-                fullscreenButton.innerHTML = '<i class="fas fa-expand"></i> Tam Ekran';
-                buttons.classList.remove("fixed"); // Butonları eski haline getir
-            }
-        });
+let video = new Vimeo.Player(document.getElementById("modern-video"));
+let videoContainer = document.getElementById("videoContainer");
+let fullscreenBtn = document.querySelector(".fullscreen-btn");
+let minimizeBtn = document.querySelector(".minimize-btn");
+let pauseBtn = document.querySelector(".pause-btn");
+
+// Video oynatma/durdurma fonksiyonu
+function toggleVideo() {
+    video.getPaused().then(function(paused) {
+        if (paused) {
+            video.play();
+            pauseBtn.innerText = "Durdur";
+        } else {
+            video.pause();
+            pauseBtn.innerText = "Oynat";
+        }
     });
-    </script>
+}
+
+// Tam ekran modu açma fonksiyonu
+function toggleFullscreen() {
+    if (videoContainer.requestFullscreen) {
+        videoContainer.requestFullscreen();
+    } else if (videoContainer.mozRequestFullScreen) { // Firefox
+        videoContainer.mozRequestFullScreen();
+    } else if (videoContainer.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        videoContainer.webkitRequestFullscreen();
+    } else if (videoContainer.msRequestFullscreen) { // IE/Edge
+        videoContainer.msRequestFullscreen();
+    }
+    fullscreenBtn.style.display = "none";
+    minimizeBtn.style.display = "block";
+}
+
+// Tam ekran modunu kapatma fonksiyonu
+function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { // Firefox
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { // IE/Edge
+        document.msExitFullscreen();
+    }
+    fullscreenBtn.style.display = "block";
+    minimizeBtn.style.display = "none";
+}
+
+// **Tam ekran modunda video dışına tıklanınca çık**
+document.addEventListener("click", function (event) {
+    let isFullscreen = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+    let clickedInsideVideo = videoContainer.contains(event.target);
+    let clickedPauseBtn = pauseBtn.contains(event.target);
+
+    // Eğer tam ekran açık ve video dışına tıklanmışsa, tam ekranı kapat
+    if (isFullscreen && !clickedInsideVideo && !clickedPauseBtn) {
+        exitFullscreen();
+    }
+});
+</script>
     
 
         <script>
@@ -1184,6 +1228,37 @@ document.addEventListener("wheel", updateIndicatorVisibility);
 document.addEventListener("click", updateIndicatorVisibility);
 
         </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const container = document.querySelector(".project-grid");
+                const items = document.querySelectorAll(".project-item");
+        
+                function setActiveItem() {
+                    let closest = null;
+                    let minDistance = Infinity;
+        
+                    items.forEach(item => {
+                        const rect = item.getBoundingClientRect();
+                        const distance = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
+        
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            closest = item;
+                        }
+                    });
+        
+                    items.forEach(item => item.classList.remove("active"));
+                    if (closest) closest.classList.add("active");
+                }
+        
+                container.addEventListener("scroll", () => {
+                    requestAnimationFrame(setActiveItem);
+                });
+        
+                setActiveItem(); // Sayfa yüklendiğinde en yakın kartı seç
+            });
+        </script>
+        
         <script src="https://player.vimeo.com/api/player.js"></script>
         <script>
             function scrollToCharacterIntro() {
@@ -1288,6 +1363,36 @@ document.addEventListener('DOMContentLoaded', () => {
         indicator.addEventListener("click", () => scrollToPage(index));
     });
 });
+            </script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const container = document.querySelector(".importance-grid");
+                    const items = document.querySelectorAll(".importance-item");
+
+                    function setActiveItem() {
+                        let closest = null;
+                        let minDistance = Infinity;
+
+                        items.forEach(item => {
+                            const rect = item.getBoundingClientRect();
+                            const distance = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
+
+                            if (distance < minDistance) {
+                                minDistance = distance;
+                                closest = item;
+                            }
+                        });
+
+                        items.forEach(item => item.classList.remove("active"));
+                        if (closest) closest.classList.add("active");
+                    }
+
+                    container.addEventListener("scroll", () => {
+                        requestAnimationFrame(setActiveItem);
+                    });
+
+                    setActiveItem(); // Sayfa yüklendiğinde en yakın kartı seç
+                });
             </script>
             <script>
 document.addEventListener("DOMContentLoaded", function () {

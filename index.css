@@ -836,7 +836,7 @@ body {
     display: none;
 }
 
-.indicator[data-page="sak-text-container"]:hover::after {
+.indicator[data-page="modern-container"]:hover::after {
     display: none;
 }
 
@@ -2679,20 +2679,6 @@ body {
 
 
 
-/* ♻ İkon Stili */
-.importance-icon {
-    width: 50px;
-    height: 50px;
-    background-color: #2A9D8F;
-    color: white;
-    font-size: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-}
-
 /* Kart İçeriği */
 .importance-content h2 {
     font-size: 1.4rem;
@@ -2735,6 +2721,8 @@ body {
     }
 }
 
+
+
 /* Mobil İçin Düzenleme */
 @media (max-width: 1024px) {
     .importance-grid {
@@ -2757,7 +2745,9 @@ body {
     .importance-item {
         flex-direction: column;
         text-align: center;
-        background: rgba(255,255,255,0.9);
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
     }
 
     .importance-icon {
@@ -3475,22 +3465,18 @@ p {
     }
 }
 
-/* 🌍 Mobil için Genel Stil */
+@media (max-width: 768px) {
+    .top-left-logo,
+    .top-right-logo {
+        width: 280px !important;
+        height: auto !important;
+        position: absolute !important;
+        top: 10px !important;
+    }
+}
+
 @media (max-width: 768px) {
 
-
-    .top-left-logo {
-        top: 8px;
-        left: 8px;
-    }
-
-    .top-right-logo {
-        top: 8px;
-        right: 8px;
-    }
-
-
-    /* 📌 Başlık ve Açıklamalar – Küçük Ekranda Daha Uyumlu */
     .title {
         font-size: 1.8rem;
         margin-bottom: 5px;
@@ -3674,13 +3660,6 @@ p {
     }
   
 
-    .top-left-logo,
-    .top-right-logo {
-      width: 40px;
-      height: auto;
-      top: 10px;
-    }
-  
   }
   
   @media (max-width: 768px) {
@@ -3834,6 +3813,71 @@ p {
     }
 }
 
+.importance-icon {
+    font-size: 2rem;
+    background: #5ca08e; /* ✅ Düzgün ikon rengi */
+    color: white;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+@media (max-width: 768px) {
+    /* Konteyner stilleri */
+    .project-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 15px;
+        padding: 20px;
+        width: 100%;
+        justify-content: flex-start;
+        scroll-behavior: smooth;
+    }
+
+    /* Kart stilleri */
+    .project-item {
+        min-width: 80%;
+        max-width: 80%;
+        scroll-snap-align: center;
+        padding: 20px;
+        border-radius: 15px;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    /* Başlık ve yazı boyutları */
+    .project-item h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .project-item p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    /* Aktif (merkezdeki) kart */
+    .project-item.active {
+        transform: scale(1.1);
+        filter: blur(0);
+    }
+
+    /* Diğer kartlar (hafif bulanık ve küçük) */
+    .project-item:not(.active) {
+        transform: scale(0.9);
+        filter: blur(3px);
+    }
+}
+
+
 @media screen and (max-width: 768px) {
 
     /* Video mobilde kaldırıldı */
@@ -3857,50 +3901,8 @@ p {
         display: none;
     }
 
-    #importance-container .importance-item {
-        flex: 0 0 95%; /* burayı da 95 veya 100 yap */
-        scroll-snap-align: center;
-        padding: 15px;
-        border-radius: 10px;
-        background: rgba(255,255,255,0.9);
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        box-sizing: border-box;
-        text-align: center;
-    }
-    
-    .project-grid {
-        width: 100% !important;
-        display: flex;
-        flex-direction: column;
-        overflow-x: auto !important;
-        gap: 20px;
-        scroll-snap-type: x mandatory !important;
-        padding-bottom: 10px !important;
-        align-items: center !important; /* dikey ortala */
-    }
 
-    .project-item {
-        flex: 0 0 95%; /* genişliği arttır */
-        width: 100%;
-        padding: 20px;
-        margin: auto 0; /* dikey ortala */
-        scroll-snap-align: center;
-        border-radius: 10px;
-        background: rgba(255,255,255,0.9);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        border-radius: 10px;
-        box-sizing: border-box;
-        text-align: center;
-    }
-    
-    .project-item h2 {
-        font-size: 16px;
-        margin-bottom: 8px;
-    }
 
-    .project-item p {
-        font-size: 14px;
-    }
 
     .project-grid::-webkit-scrollbar {
         display: none;
@@ -4077,4 +4079,282 @@ p {
 :-ms-fullscreen iframe {
     width: 100% !important;
     height: 100% !important;
+}
+
+
+
+/* Başlık */
+.modern-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.modern-subtitle {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+/* Bilgi Kartları */
+.modern-card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.modern-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 22%;
+    max-width: 240px;
+    min-width: 180px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.modern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modern-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.modern-card-content {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2c3e50;
+    word-wrap: break-word;
+}
+
+/* Video Alanı */
+.modern-video-wrapper {
+    position: relative;
+    width: 85%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9; /* Oranı koru */
+    margin: 0 auto 40px;
+    background: black;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.modern-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Video Butonları */
+.modern-video-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.modern-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pause-btn {
+    background: #e67e22;
+    color: white;
+}
+
+.fullscreen-btn {
+    background: #27ae60;
+    color: white;
+}
+
+.minimize-btn {
+    background: #c0392b;
+    color: white;
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    /* Başlık Alanı */
+    .modern-title {
+        font-size: 1.6rem;
+        text-align: center;
+        margin: 15px 0 5px;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    .modern-subtitle {
+        font-size: 1rem; /* Yazı boyutu büyütüldü */
+        text-align: center;
+        margin: 10px auto;
+        max-width: 90%;
+        line-height: 1.4;
+        word-wrap: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+    /* Kartları Kaydırmalı ve Kare Yap */
+    .modern-card-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding: 10px;
+        width: 100vw;
+        justify-content: flex-start;
+    }
+
+
+    .modern-card {
+        height: auto;
+        scroll-snap-align: center;
+        background: white;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        word-wrap: break-word;
+    }
+
+    .modern-card-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .modern-card-content {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #2c3e50;
+        word-wrap: break-word;
+        text-align: center;
+        max-width: 100%;
+        line-height: 1.4;
+    }
+
+    /* Video Alanı */
+    .modern-video-wrapper {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .modern-video {
+        width: 90%;
+        height: auto;
+        max-height: 300px;
+        border-radius: 10px;
+    }
+
+    /* Butonları Düzenleme */
+    .modern-video-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .modern-button {
+        padding: 12px 18px;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        border: none;
+    }
+
+    .pause-btn {
+        background: #e67e22;
+        color: white;
+    }
+
+    .fullscreen-btn {
+        background: #27ae60;
+        color: white;
+    }
+
+    .minimize-btn {
+        background: #c0392b;
+        color: white;
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Konteyner ayarları */
+    .importance-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 15px;
+        padding: 20px;
+        width: 100%;
+        justify-content: flex-start;
+        scroll-behavior: smooth;
+    }
+
+    /* Her kart için temel stil */
+    .importance-item {
+        min-width: 80%;
+        max-width: 80%;
+        scroll-snap-align: center;
+        padding: 20px;
+        border-radius: 15px;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    /* Kartın içeriği */
+    .importance-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .importance-content p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    /* Aktif (merkezdeki) kart */
+    .importance-item.active {
+        transform: scale(1.1);
+        filter: blur(0);
+    }
+
+    /* Diğer kartlar (hafif bulanık ve küçük) */
+    .importance-item:not(.active) {
+        transform: scale(0.9);
+        filter: blur(3px);
+    }
 }
